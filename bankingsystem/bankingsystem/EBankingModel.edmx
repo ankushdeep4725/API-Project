@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="eBankingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accountdetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="title" Type="varchar" MaxLength="100" />
+          <Property Name="para1" Type="varchar" MaxLength="5000" />
+          <Property Name="para2" Type="varchar" MaxLength="5000" />
+          <Property Name="heading" Type="varchar" MaxLength="200" />
+          <Property Name="panel1title" Type="varchar" MaxLength="100" />
+          <Property Name="panel1subtitle1" Type="varchar" MaxLength="100" />
+          <Property Name="panel1subtitle1content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel1subtitle2" Type="varchar" MaxLength="100" />
+          <Property Name="panel1subtitle2content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel1subtitle3" Type="varchar" MaxLength="100" />
+          <Property Name="panel1subtitle3content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel2title" Type="varchar" MaxLength="100" />
+          <Property Name="panel2subtitle1" Type="varchar" MaxLength="100" />
+          <Property Name="panel2subtitle1content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel2subtitle2" Type="varchar" MaxLength="100" />
+          <Property Name="panel2subtitle2content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel2subtitle3" Type="varchar" MaxLength="100" />
+          <Property Name="panel2subtitle3content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel3title" Type="varchar" MaxLength="100" />
+          <Property Name="panel3subtitle1" Type="varchar" MaxLength="100" />
+          <Property Name="panel3subtitle1content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel3subtitle2" Type="varchar" MaxLength="100" />
+          <Property Name="panel3subtitle2content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel3subtitle3" Type="varchar" MaxLength="100" />
+          <Property Name="panel3subtitle3content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel4title" Type="varchar" MaxLength="100" />
+          <Property Name="panel4subtitle1" Type="varchar" MaxLength="100" />
+          <Property Name="panel4subtitle1content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel4subtitle2" Type="varchar" MaxLength="100" />
+          <Property Name="panel4subtitle2content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel4subtitle3" Type="varchar" MaxLength="100" />
+          <Property Name="panel4subtitle3content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel5title" Type="varchar" MaxLength="100" />
+          <Property Name="panel5subtitle1" Type="varchar" MaxLength="100" />
+          <Property Name="panel5subtitle1content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel5subtitle2" Type="varchar" MaxLength="100" />
+          <Property Name="panel5subtitle2content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel5subtitle3" Type="varchar" MaxLength="100" />
+          <Property Name="panel5subtitle3content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel6title" Type="varchar" MaxLength="100" />
+          <Property Name="panel6subtitle1" Type="varchar" MaxLength="100" />
+          <Property Name="panel6subtitle1content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel6subtitle2" Type="varchar" MaxLength="100" />
+          <Property Name="panel6subtitle2content" Type="varchar" MaxLength="5000" />
+          <Property Name="panel6subtitle3" Type="varchar" MaxLength="100" />
+          <Property Name="panel6subtitle3content" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="accounts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="accounttype" Type="varchar" MaxLength="500" />
+          <Property Name="accountdesc1" Type="varchar" MaxLength="5000" />
+          <Property Name="accountdesc2" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="accountsuboptions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="accountsubject" Type="varchar" MaxLength="100" />
+          <Property Name="title" Type="varchar" MaxLength="100" />
+          <Property Name="optiontitle1" Type="varchar" MaxLength="100" />
+          <Property Name="optiondesc1" Type="varchar" MaxLength="5000" />
+          <Property Name="optiontitle2" Type="varchar" MaxLength="100" />
+          <Property Name="optiondesc2" Type="varchar" MaxLength="5000" />
+          <Property Name="optiontitle3" Type="varchar" MaxLength="100" />
+          <Property Name="optiondesc3" Type="varchar" MaxLength="5000" />
+          <Property Name="accounttypename" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="adminuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="bankservices">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usersaccountnumber" Type="varchar" MaxLength="50" />
+          <Property Name="services" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="beneficiaries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="nickname" Type="varchar" MaxLength="50" />
+          <Property Name="accountnumber" Type="varchar" MaxLength="50" />
+          <Property Name="ifsccode" Type="varchar" MaxLength="50" />
+          <Property Name="maxamount" Type="varchar" MaxLength="50" />
+          <Property Name="maxtransactions" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="usersaccountnumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="checkbooks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usersaccountnumber" Type="varchar" MaxLength="50" />
+          <Property Name="issuedate" Type="datetime" />
+          <Property Name="numberofpages" Type="varchar" MaxLength="50" />
+          <Property Name="delivereddate" Type="datetime" />
+          <Property Name="isdelivered" Type="bit" />
+        </EntityType>
+        <EntityType Name="faq">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question" Type="varchar" MaxLength="1000" />
+          <Property Name="answer" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="nickname" Type="varchar" MaxLength="50" />
+          <Property Name="senderaccountnumber" Type="varchar" MaxLength="50" />
+          <Property Name="receiveraccountnumber" Type="varchar" MaxLength="50" />
+          <Property Name="ifsccode" Type="varchar" MaxLength="50" />
+          <Property Name="transactiondate" Type="datetime" />
+          <Property Name="creditamount" Type="varchar" MaxLength="50" />
+          <Property Name="debitamount" Type="varchar" MaxLength="50" />
+          <Property Name="senderbalanceamount" Type="varchar" MaxLength="50" />
+          <Property Name="receiverbalanceamount" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="transactionpassword" Type="varchar" MaxLength="50" />
+          <Property Name="holdername" Type="varchar" MaxLength="50" />
+          <Property Name="accountnumber" Type="varchar" MaxLength="50" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="image" Type="varchar" MaxLength="1000" />
+          <Property Name="contactnumber" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="lastlogin" Type="datetime" />
+          <Property Name="location" Type="varchar" MaxLength="500" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="dateofbirth" Type="varchar" MaxLength="50" />
+          <Property Name="accountbalance" Type="varchar" MaxLength="50" />
+          <Property Name="randomtext" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="eBankingModelStoreContainer">
+          <EntitySet Name="accountdetails" EntityType="Self.accountdetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="accounts" EntityType="Self.accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="accountsuboptions" EntityType="Self.accountsuboptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adminuser" EntityType="Self.adminuser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bankservices" EntityType="Self.bankservices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="beneficiaries" EntityType="Self.beneficiaries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="checkbooks" EntityType="Self.checkbooks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="faq" EntityType="Self.faq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transactions" EntityType="Self.transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eBankingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="eBankingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="beneficiaries" EntityType="eBankingModel.beneficiary" />
+          <EntitySet Name="checkbooks" EntityType="eBankingModel.checkbook" />
+          <EntitySet Name="bankservices" EntityType="eBankingModel.bankservice" />
+          <EntitySet Name="transactions" EntityType="eBankingModel.transaction" />
+          <EntitySet Name="faqs" EntityType="eBankingModel.faq" />
+          <EntitySet Name="accounts" EntityType="eBankingModel.account" />
+          <EntitySet Name="accountsuboptions" EntityType="eBankingModel.accountsuboption" />
+          <EntitySet Name="adminusers" EntityType="eBankingModel.adminuser" />
+          <EntitySet Name="accountdetails" EntityType="eBankingModel.accountdetail" />
+          <EntitySet Name="users" EntityType="eBankingModel.user" />
+        </EntityContainer>
+        <EntityType Name="beneficiary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="accountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ifsccode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="maxamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="maxtransactions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usersaccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="checkbook">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usersaccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="issuedate" Type="DateTime" Precision="3" />
+          <Property Name="delivereddate" Type="DateTime" Precision="3" />
+          <Property Name="isdelivered" Type="Boolean" />
+          <Property Name="numberofpages" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bankservice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usersaccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="services" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="senderaccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="receiveraccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ifsccode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="transactiondate" Type="DateTime" Precision="3" />
+          <Property Name="creditamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="debitamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="senderbalanceamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="receiverbalanceamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="faq">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="answer" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accounttype" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="accountdesc1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="accountdesc2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="accountsuboption">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accountsubject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="optiontitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="optiondesc1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="optiontitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="optiondesc2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="optiontitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="optiondesc3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="accounttypename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="adminuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="accountdetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="para1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="para2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="heading" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="panel1title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel1subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel1subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel1subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel1subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel1subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel1subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel2title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel2subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel2subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel2subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel2subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel2subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel2subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel3title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel3subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel3subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel3subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel3subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel3subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel3subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel4title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel4subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel4subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel4subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel4subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel4subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel4subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel5title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel5subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel5subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel5subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel5subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel5subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel5subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel6title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel6subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel6subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel6subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel6subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="panel6subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="panel6subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="transactionpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="holdername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="accountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="image" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="contactnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastlogin" Type="DateTime" Precision="3" />
+          <Property Name="location" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateofbirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="accountbalance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="randomtext" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eBankingModelStoreContainer" CdmEntityContainer="eBankingEntities">
+          <EntitySetMapping Name="beneficiaries">
+            <EntityTypeMapping TypeName="eBankingModel.beneficiary">
+              <MappingFragment StoreEntitySet="beneficiaries">
+                <ScalarProperty Name="usersaccountnumber" ColumnName="usersaccountnumber" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="maxtransactions" ColumnName="maxtransactions" />
+                <ScalarProperty Name="maxamount" ColumnName="maxamount" />
+                <ScalarProperty Name="ifsccode" ColumnName="ifsccode" />
+                <ScalarProperty Name="accountnumber" ColumnName="accountnumber" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="checkbooks">
+            <EntityTypeMapping TypeName="eBankingModel.checkbook">
+              <MappingFragment StoreEntitySet="checkbooks">
+                <ScalarProperty Name="numberofpages" ColumnName="numberofpages" />
+                <ScalarProperty Name="isdelivered" ColumnName="isdelivered" />
+                <ScalarProperty Name="delivereddate" ColumnName="delivereddate" />
+                <ScalarProperty Name="issuedate" ColumnName="issuedate" />
+                <ScalarProperty Name="usersaccountnumber" ColumnName="usersaccountnumber" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bankservices">
+            <EntityTypeMapping TypeName="eBankingModel.bankservice">
+              <MappingFragment StoreEntitySet="bankservices">
+                <ScalarProperty Name="services" ColumnName="services" />
+                <ScalarProperty Name="usersaccountnumber" ColumnName="usersaccountnumber" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transactions">
+            <EntityTypeMapping TypeName="eBankingModel.transaction">
+              <MappingFragment StoreEntitySet="transactions">
+                <ScalarProperty Name="receiverbalanceamount" ColumnName="receiverbalanceamount" />
+                <ScalarProperty Name="senderbalanceamount" ColumnName="senderbalanceamount" />
+                <ScalarProperty Name="debitamount" ColumnName="debitamount" />
+                <ScalarProperty Name="creditamount" ColumnName="creditamount" />
+                <ScalarProperty Name="transactiondate" ColumnName="transactiondate" />
+                <ScalarProperty Name="ifsccode" ColumnName="ifsccode" />
+                <ScalarProperty Name="receiveraccountnumber" ColumnName="receiveraccountnumber" />
+                <ScalarProperty Name="senderaccountnumber" ColumnName="senderaccountnumber" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="faqs">
+            <EntityTypeMapping TypeName="eBankingModel.faq">
+              <MappingFragment StoreEntitySet="faq">
+                <ScalarProperty Name="answer" ColumnName="answer" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="eBankingModel.account">
+              <MappingFragment StoreEntitySet="accounts">
+                <ScalarProperty Name="accountdesc2" ColumnName="accountdesc2" />
+                <ScalarProperty Name="accountdesc1" ColumnName="accountdesc1" />
+                <ScalarProperty Name="accounttype" ColumnName="accounttype" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accountsuboptions">
+            <EntityTypeMapping TypeName="eBankingModel.accountsuboption">
+              <MappingFragment StoreEntitySet="accountsuboptions">
+                <ScalarProperty Name="accounttypename" ColumnName="accounttypename" />
+                <ScalarProperty Name="optiondesc3" ColumnName="optiondesc3" />
+                <ScalarProperty Name="optiontitle3" ColumnName="optiontitle3" />
+                <ScalarProperty Name="optiondesc2" ColumnName="optiondesc2" />
+                <ScalarProperty Name="optiontitle2" ColumnName="optiontitle2" />
+                <ScalarProperty Name="optiondesc1" ColumnName="optiondesc1" />
+                <ScalarProperty Name="optiontitle1" ColumnName="optiontitle1" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="accountsubject" ColumnName="accountsubject" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adminusers">
+            <EntityTypeMapping TypeName="eBankingModel.adminuser">
+              <MappingFragment StoreEntitySet="adminuser">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accountdetails">
+            <EntityTypeMapping TypeName="eBankingModel.accountdetail">
+              <MappingFragment StoreEntitySet="accountdetails">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="panel6subtitle3content" ColumnName="panel6subtitle3content" />
+                <ScalarProperty Name="panel6subtitle3" ColumnName="panel6subtitle3" />
+                <ScalarProperty Name="panel6subtitle2content" ColumnName="panel6subtitle2content" />
+                <ScalarProperty Name="panel6subtitle2" ColumnName="panel6subtitle2" />
+                <ScalarProperty Name="panel6subtitle1content" ColumnName="panel6subtitle1content" />
+                <ScalarProperty Name="panel6subtitle1" ColumnName="panel6subtitle1" />
+                <ScalarProperty Name="panel6title" ColumnName="panel6title" />
+                <ScalarProperty Name="panel5subtitle3content" ColumnName="panel5subtitle3content" />
+                <ScalarProperty Name="panel5subtitle3" ColumnName="panel5subtitle3" />
+                <ScalarProperty Name="panel5subtitle2content" ColumnName="panel5subtitle2content" />
+                <ScalarProperty Name="panel5subtitle2" ColumnName="panel5subtitle2" />
+                <ScalarProperty Name="panel5subtitle1content" ColumnName="panel5subtitle1content" />
+                <ScalarProperty Name="panel5subtitle1" ColumnName="panel5subtitle1" />
+                <ScalarProperty Name="panel5title" ColumnName="panel5title" />
+                <ScalarProperty Name="panel4subtitle3content" ColumnName="panel4subtitle3content" />
+                <ScalarProperty Name="panel4subtitle3" ColumnName="panel4subtitle3" />
+                <ScalarProperty Name="panel4subtitle2content" ColumnName="panel4subtitle2content" />
+                <ScalarProperty Name="panel4subtitle2" ColumnName="panel4subtitle2" />
+                <ScalarProperty Name="panel4subtitle1content" ColumnName="panel4subtitle1content" />
+                <ScalarProperty Name="panel4subtitle1" ColumnName="panel4subtitle1" />
+                <ScalarProperty Name="panel4title" ColumnName="panel4title" />
+                <ScalarProperty Name="panel3subtitle3content" ColumnName="panel3subtitle3content" />
+                <ScalarProperty Name="panel3subtitle3" ColumnName="panel3subtitle3" />
+                <ScalarProperty Name="panel3subtitle2content" ColumnName="panel3subtitle2content" />
+                <ScalarProperty Name="panel3subtitle2" ColumnName="panel3subtitle2" />
+                <ScalarProperty Name="panel3subtitle1content" ColumnName="panel3subtitle1content" />
+                <ScalarProperty Name="panel3subtitle1" ColumnName="panel3subtitle1" />
+                <ScalarProperty Name="panel3title" ColumnName="panel3title" />
+                <ScalarProperty Name="panel2subtitle3content" ColumnName="panel2subtitle3content" />
+                <ScalarProperty Name="panel2subtitle3" ColumnName="panel2subtitle3" />
+                <ScalarProperty Name="panel2subtitle2content" ColumnName="panel2subtitle2content" />
+                <ScalarProperty Name="panel2subtitle2" ColumnName="panel2subtitle2" />
+                <ScalarProperty Name="panel2subtitle1content" ColumnName="panel2subtitle1content" />
+                <ScalarProperty Name="panel2subtitle1" ColumnName="panel2subtitle1" />
+                <ScalarProperty Name="panel2title" ColumnName="panel2title" />
+                <ScalarProperty Name="panel1subtitle3content" ColumnName="panel1subtitle3content" />
+                <ScalarProperty Name="panel1subtitle3" ColumnName="panel1subtitle3" />
+                <ScalarProperty Name="panel1subtitle2content" ColumnName="panel1subtitle2content" />
+                <ScalarProperty Name="panel1subtitle2" ColumnName="panel1subtitle2" />
+                <ScalarProperty Name="panel1subtitle1content" ColumnName="panel1subtitle1content" />
+                <ScalarProperty Name="panel1subtitle1" ColumnName="panel1subtitle1" />
+                <ScalarProperty Name="panel1title" ColumnName="panel1title" />
+                <ScalarProperty Name="heading" ColumnName="heading" />
+                <ScalarProperty Name="para2" ColumnName="para2" />
+                <ScalarProperty Name="para1" ColumnName="para1" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="eBankingModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="randomtext" ColumnName="randomtext" />
+                <ScalarProperty Name="accountbalance" ColumnName="accountbalance" />
+                <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="lastlogin" ColumnName="lastlogin" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contactnumber" ColumnName="contactnumber" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="accountnumber" ColumnName="accountnumber" />
+                <ScalarProperty Name="holdername" ColumnName="holdername" />
+                <ScalarProperty Name="transactionpassword" ColumnName="transactionpassword" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

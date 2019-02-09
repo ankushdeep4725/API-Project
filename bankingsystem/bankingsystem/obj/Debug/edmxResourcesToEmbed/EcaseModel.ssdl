@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ecaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cases">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="200" />
+    <Property Name="description" Type="varchar" MaxLength="2000" />
+    <Property Name="clientid" Type="int" />
+    <Property Name="specialityid" Type="int" />
+    <Property Name="approvedlawyerid" Type="int" />
+  </EntityType>
+  <EntityType Name="quotes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="2000" />
+    <Property Name="price" Type="varchar" MaxLength="50" />
+    <Property Name="duration" Type="varchar" MaxLength="50" />
+    <Property Name="lawyerid" Type="int" />
+    <Property Name="caseid" Type="int" />
+  </EntityType>
+  <EntityType Name="regions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="1000" />
+    <Property Name="createdon" Type="datetime" />
+    <Property Name="updatedon" Type="datetime" />
+  </EntityType>
+  <EntityType Name="registration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="50" />
+    <Property Name="lastname" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="location" Type="varchar" MaxLength="50" />
+    <Property Name="speciality" Type="varchar" MaxLength="2000" />
+    <Property Name="image" Type="varchar" MaxLength="2000" />
+    <Property Name="certificateno" Type="varchar" MaxLength="50" />
+    <Property Name="aboutme" Type="varchar" MaxLength="2000" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="accounttype" Type="varchar" MaxLength="50" />
+    <Property Name="token" Type="varchar" MaxLength="1000" />
+    <Property Name="status" Type="bit" />
+    <Property Name="createdon" Type="datetime" />
+    <Property Name="updatedon" Type="datetime" />
+  </EntityType>
+  <EntityType Name="specialities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="createdon" Type="datetime" />
+    <Property Name="updatedon" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="ecaseModelStoreContainer">
+    <EntitySet Name="cases" EntityType="Self.cases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="quotes" EntityType="Self.quotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="regions" EntityType="Self.regions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="registration" EntityType="Self.registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="specialities" EntityType="Self.specialities" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

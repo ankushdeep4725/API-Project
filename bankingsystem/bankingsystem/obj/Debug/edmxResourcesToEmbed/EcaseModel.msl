@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ecaseModelStoreContainer" CdmEntityContainer="ecaseEntities">
+    <EntitySetMapping Name="registrations">
+      <EntityTypeMapping TypeName="ecaseModel.registration">
+        <MappingFragment StoreEntitySet="registration">
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="aboutme" ColumnName="aboutme" />
+          <ScalarProperty Name="certificateno" ColumnName="certificateno" />
+          <ScalarProperty Name="speciality" ColumnName="speciality" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="accounttype" ColumnName="accounttype" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="updatedon" ColumnName="updatedon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="regions">
+      <EntityTypeMapping TypeName="ecaseModel.region">
+        <MappingFragment StoreEntitySet="regions">
+          <ScalarProperty Name="updatedon" ColumnName="updatedon" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="specialities">
+      <EntityTypeMapping TypeName="ecaseModel.speciality">
+        <MappingFragment StoreEntitySet="specialities">
+          <ScalarProperty Name="updatedon" ColumnName="updatedon" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cases">
+      <EntityTypeMapping TypeName="ecaseModel.case">
+        <MappingFragment StoreEntitySet="cases">
+          <ScalarProperty Name="approvedlawyerid" ColumnName="approvedlawyerid" />
+          <ScalarProperty Name="specialityid" ColumnName="specialityid" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quotes">
+      <EntityTypeMapping TypeName="ecaseModel.quote">
+        <MappingFragment StoreEntitySet="quotes">
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="lawyerid" ColumnName="lawyerid" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

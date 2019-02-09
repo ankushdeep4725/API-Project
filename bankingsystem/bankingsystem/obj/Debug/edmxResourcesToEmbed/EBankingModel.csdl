@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eBankingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="eBankingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="beneficiaries" EntityType="eBankingModel.beneficiary" />
+    <EntitySet Name="checkbooks" EntityType="eBankingModel.checkbook" />
+    <EntitySet Name="bankservices" EntityType="eBankingModel.bankservice" />
+    <EntitySet Name="transactions" EntityType="eBankingModel.transaction" />
+    <EntitySet Name="faqs" EntityType="eBankingModel.faq" />
+    <EntitySet Name="accounts" EntityType="eBankingModel.account" />
+    <EntitySet Name="accountsuboptions" EntityType="eBankingModel.accountsuboption" />
+    <EntitySet Name="adminusers" EntityType="eBankingModel.adminuser" />
+    <EntitySet Name="accountdetails" EntityType="eBankingModel.accountdetail" />
+    <EntitySet Name="users" EntityType="eBankingModel.user" />
+  </EntityContainer>
+  <EntityType Name="beneficiary">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="accountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ifsccode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="maxamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="maxtransactions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usersaccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="checkbook">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usersaccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="issuedate" Type="DateTime" Precision="3" />
+    <Property Name="delivereddate" Type="DateTime" Precision="3" />
+    <Property Name="isdelivered" Type="Boolean" />
+    <Property Name="numberofpages" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="bankservice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usersaccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="services" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="transaction">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="senderaccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="receiveraccountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ifsccode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="transactiondate" Type="DateTime" Precision="3" />
+    <Property Name="creditamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="debitamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="senderbalanceamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="receiverbalanceamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="faq">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="question" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="answer" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accounttype" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="accountdesc1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="accountdesc2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="accountsuboption">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accountsubject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="optiontitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="optiondesc1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="optiontitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="optiondesc2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="optiontitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="optiondesc3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="accounttypename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="adminuser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="accountdetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="para1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="para2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="heading" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="panel1title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel1subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel1subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel1subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel1subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel1subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel1subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel2title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel2subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel2subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel2subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel2subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel2subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel2subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel3title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel3subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel3subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel3subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel3subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel3subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel3subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel4title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel4subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel4subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel4subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel4subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel4subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel4subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel5title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel5subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel5subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel5subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel5subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel5subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel5subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel6title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel6subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel6subtitle1content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel6subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel6subtitle2content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="panel6subtitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="panel6subtitle3content" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="transactionpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="holdername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="accountnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdon" Type="DateTime" Precision="3" />
+    <Property Name="image" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="contactnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastlogin" Type="DateTime" Precision="3" />
+    <Property Name="location" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dateofbirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="accountbalance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="randomtext" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
