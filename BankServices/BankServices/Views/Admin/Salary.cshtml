@@ -1,0 +1,1205 @@
+﻿@model BankServices.Models.AccountDetailFullDto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/logo_res.png">
+    <title>Xcalibur : Admin</title>
+    <link href="/admin_assets/js/css3clock/css/style.css" rel="stylesheet">
+    <link href="/admin_assets/bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/admin_assets/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="/admin_assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/admin_assets/css/style.css" rel="stylesheet">
+    <link href="/admin_assets/css/style-responsive.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="container">
+        <header class="header fixed-top clearfix">
+            <div class="brand">
+                <a href="/Admin/Savings" class="logo">
+                    <img src="/admin_assets/images/logo.png" alt="">
+                </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
+            <div class="top-nav clearfix">
+                <ul class="nav pull-right top-menu">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="/admin_assets/images/avatar1_small.jpg">
+                            <span class="username">Administrator</span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+            </div>
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <div class="leftside-navigation">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <li>
+                            <a href="/Admin/Savings">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Savings Account</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/Salary" class="active">
+                                <i class="fa fa-users"></i>
+                                <span>Salary Account</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/Current">
+                                <i class="fa fa-book"></i>
+                                <span>Current Account</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/DirectInvest">
+                                <i class="fa fa-retweet"></i>
+                                <span>Direct Invest Account</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/SafeDeposit">
+                                <i class="fa fa fa-th"></i>
+                                <span>Safe Deposit Lockers</span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/Admin/Pension">
+                                <i class="fa fa-mail-forward (alias)"></i>
+                                <span>Pension Disbursement A/c.</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/FAQ">
+                                <i class="fa fa-archive"></i>
+                                <span>FAQ's</span>
+                            </a>
+                        </li>
+
+
+                        <li class="sub-menu">
+                            <a href="/Admin/Logout">
+                                <i class="fa fa-power-off"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </aside>
+        <section id="main-content">
+            <section class="wrapper">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">Salary Account</h3>
+                        </section>
+                    </div>
+                </div>
+                <!--Account Title-->
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <form method="post" action="/Admin/AccountDetail">
+
+                            <input type="hidden" value="@Model.type" name="type" />
+                            <section class="panel">
+                                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                                    <div class="col-md-12">
+                                        <section class="panel">
+                                            <div class="panel-body">
+
+
+                                                <table border="0" width="100%">
+                                                    @{
+                                                        if (ViewBag.Panel == "Panel0")
+                                                        {
+                                                            <tr class='hideMe'>
+                                                                <td width="100%" colspan="2">
+                                                                    <div class="alert alert-success">Updated Successfully</div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c Title</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Salary Account" name="title" value="@Model.title" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Para-1</h4>
+                                                        </td>
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <textarea rows="3" cols="5" placeholder="Para-1 Text" name="para1" required class="form-control">@Model.para1</textarea>
+
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Para-2</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <textarea placeholder="Para-2 Text" rows="3" cols="5" name="para2" required class="form-control">@Model.para2</textarea>
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Panel Heading</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Salary Accounts Varients" name="heading" value="@Model.heading" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+
+                                            </div>
+                                        </section>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </section>
+
+
+                        </form>
+                    </div>
+                </div>
+
+                <!--End Account Title-->
+                <!--Start Panel 1-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">PANEL-1</h3>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" action="/Admin/AccountDetailPanel1">
+                            <section class="panel">
+                                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                                    <div class="col-md-12">
+                                        <section class="panel">
+                                            <div class="panel-body">
+
+                                                <input type="hidden" value="@Model.type" name="type" />
+                                                <table border="0" width="100%">
+                                                    @{
+                                                        if (ViewBag.Panel == "Panel1")
+                                                        {
+                                                            <tr class='hideMe'>
+                                                                <td width="100%" colspan="2">
+                                                                    <div class="alert alert-success">Updated Successfully</div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-1 Title</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Republic Salary Account" name="panel1Title" value="@Model.panel1Title" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-1 Subtitle-1</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Debit Card" class="form-control" name="panel1Subtitle1" value="@Model.panel1Subtitle1">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-1 Subtitle-1 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Free Platinum Debit Card With Shopping Limit Of $1 Lakh"
+                                                                       name="panel1Subtitle1Content" value="@Model.panel1Subtitle1Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-1 Subtitle-2</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Product Features" class="form-control" name="panel1Subtitle2" value="@Model.panel1Subtitle2">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-1 Subtitle-2 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Senior ID Card For Senior Citizen Parents To Avail The Account."
+                                                                       name="panel1Subtitle2Content"
+                                                                       value="@Model.panel1Subtitle2Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-1 Subtitle-3</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Offers & Discounts" class="form-control" name="panel1Subtitle3" value="@Model.panel1Subtitle3">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-1 Subtitle-3 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Domestic Travel Offers On Accounts And Free Online Booking Offers." class="form-control"
+                                                                       name="panel1Subtitle3Content" value="@Model.panel1Subtitle3Content">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+                                                </table>
+
+                                            </div>
+                                        </section>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </section>
+                        </form>
+                    </div>
+                </div>
+
+                <!--End panel 1-->
+                <!--Start Panel 2-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">PANEL-2</h3>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" action="/Admin/AccountDetailPanel2">
+                            <section class="panel">
+                                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                                    <div class="col-md-12">
+                                        <section class="panel">
+                                            <div class="panel-body">
+                                                <input type="hidden" value="@Model.type" name="type" />
+                                                <table border="0" width="100%">
+                                                    @{
+                                                        if (ViewBag.Panel == "Panel2")
+                                                        {
+                                                            <tr class='hideMe'>
+                                                                <td width="100%" colspan="2">
+                                                                    <div class="alert alert-success">Updated Successfully</div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-2 Title</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Easy Access Salary Account" class="form-control" name="panel2Title" value="@Model.panel2Title">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-2 Subtitle-1</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Debit Card" class="form-control" name="panel2Subtitle1" value="@Model.panel2Subtitle1">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-2 Subtitle-1 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Platinum Debit Card Daily Shopping Limit: $ 1 Lakh"
+                                                                       name="panel2Subtitle1Content"
+                                                                       value="@Model.panel2Subtitle1Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-2 Subtitle-2</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Product Features" class="form-control" name="panel2Subtitle2" value="@Model.panel2Subtitle2">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-2 Subtitle-2 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Dining Delights Program Available With Special Discounts."
+                                                                       name="panel2Subtitle2Content"
+                                                                       value="@Model.panel2Subtitle2Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-2 Subtitle-3</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Offers & Discounts" class="form-control" name="panel2Subtitle3" value="@Model.panel2Subtitle3">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-2 Subtitle-3 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="No Offers & Discounts Available, You Will Be Notified Soon." class="form-control"
+                                                                       name="panel2Subtitle3Content"
+                                                                       value="@Model.panel2Subtitle3Content">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+                                                </table>
+
+                                            </div>
+                                        </section>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </section>
+                        </form>
+                    </div>
+                </div>
+
+                <!--End Panel 2-->
+                <!--Start Panel 3-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">PANEL-3</h3>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" action="/Admin/AccountDetailPanel3">
+                            <section class="panel">
+                                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                                    <div class="col-md-12">
+
+                                        <section class="panel">
+                                            <div class="panel-body">
+                                                <input type="hidden" value="@Model.type" name="type" />
+
+                                                <table border="0" width="100%">
+                                                    @{
+                                                        if (ViewBag.Panel == "Panel3")
+                                                        {
+                                                            <tr class='hideMe'>
+                                                                <td width="100%" colspan="2">
+                                                                    <div class="alert alert-success">Updated Successfully</div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-3 Title</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Prime Salary Account" class="form-control" name="panel3Title"
+                                                                       value="@Model.panel3Title">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-3 Subtitle-1</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Debit Card" class="form-control" name="panel3Subtitle1"
+                                                                       value="@Model.panel3Subtitle1">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-3 Subtitle-1 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Visa Rewards Plus Debit Card Daily Shopping Limit: $ 4 Lakh"
+                                                                       name="panel3Subtitle1Content"
+                                                                       value="@Model.panel3Subtitle1Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-3 Subtitle-2</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Product Features" class="form-control" name="panel3Subtitle2"
+                                                                       value="@Model.panel3Subtitle2">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-3 Subtitle-2 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Dining Delights Program Available With 50% Cashback"
+                                                                       name="panel3Subtitle2Content"
+                                                                       value="@Model.panel3Subtitle2Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-3 Subtitle-3</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Offers & Discounts" class="form-control"
+                                                                       name="panel3Subtitle3"
+                                                                       value="@Model.panel3Subtitle3">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-3 Subtitle-3 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="5% Cashback On Movie Ticket Spends On This Account"
+                                                                       name="panel3Subtitle3Content"
+                                                                       value="@Model.panel3Subtitle3Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+                                                </table>
+
+                                            </div>
+                                        </section>
+
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </section>
+                        </form>
+                    </div>
+                </div>
+
+                <!--End Panel 3-->
+                <!--Start Panel 4-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">PANEL-4</h3>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" action="/Admin/AccountDetailPanel4">
+                            <section class="panel">
+                                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                                    <div class="col-md-12">
+                                        <section class="panel">
+                                            <div class="panel-body">
+
+                                                <input type="hidden" value="@Model.type" name="type" />
+                                                <table border="0" width="100%">
+                                                    @{
+                                                        if (ViewBag.Panel == "Panel4")
+                                                        {
+                                                            <tr class='hideMe'>
+                                                                <td width="100%" colspan="2">
+                                                                    <div class="alert alert-success">Updated Successfully</div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-4 Title</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Priority Salary Account" class="form-control" name="panel4Title"
+                                                                       value="@Model.panel4Title">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-4 Subtitle-1</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Debit Card" class="form-control" name="panel4Subtitle1"
+                                                                       value="@Model.panel4Subtitle1">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-4 Subtitle-1 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Free Priority Platinum Debit Card Daily Shopping Limit: $ 4 Lakh"
+                                                                       name="panel4Subtitle1Content"
+                                                                       value="@Model.panel4Subtitle1Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-4 Subtitle-2</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Product Features" class="form-control" name="panel4Subtitle2"
+                                                                       value="@Model.panel4Subtitle2">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-4 Subtitle-2 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required
+                                                                       name="panel4Subtitle2Content"
+                                                                       placeholder="Dining Delights Program Available On This Account."
+                                                                       value="@Model.panel4Subtitle2Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-4 Subtitle-3</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Offers & Discounts" class="form-control" name="panel4Subtitle3"
+                                                                       value="@Model.panel4Subtitle3">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-4 Subtitle-3 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="25% Cashback On Movie Ticket Spends On This Account."
+                                                                       name="panel4Subtitle3Content"
+                                                                       value="@Model.panel4Subtitle3Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+                                                </table>
+
+                                            </div>
+                                        </section>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+
+                <!--End Panel 4-->
+                <!--Start Panel 5-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">PANEL-5</h3>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" action="/Admin/AccountDetailPanel5">
+                            <section class="panel">
+                                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                                    <div class="col-md-12">
+                                        <section class="panel">
+                                            <div class="panel-body">
+                                                <input type="hidden" value="@Model.type" name="type" />
+
+                                                <table border="0" width="100%">
+                                                    @{
+                                                        if (ViewBag.Panel == "Panel5")
+                                                        {
+                                                            <tr class='hideMe'>
+                                                                <td width="100%" colspan="2">
+                                                                    <div class="alert alert-success">Updated Successfully</div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-5 Title</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Defence Salary Account" class="form-control" name="panel5Title"
+                                                                       value="@Model.panel5Title">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-5 Subtitle-1</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Debit Card" class="form-control" name="panel5Subtitle1"
+                                                                       value="@Model.panel5Subtitle1">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-5 Subtitle-1 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Free Power Salute Debit Card Daily Shopping Limit-$1 Lakh"
+                                                                       name="panel5Subtitle1Content"
+                                                                       value="@Model.panel5Subtitle1Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-5 Subtitle-2</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Product Features" class="form-control" name="panel5Subtitle2"
+                                                                       value="@Model.panel5Subtitle2">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-5 Subtitle-2 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Dining Delights Program & Free Insurance Available On This Account."
+                                                                       name="panel5Subtitle2Content"
+                                                                       value="@Model.panel5Subtitle2Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-5 Subtitle-3</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Offers & Discounts" class="form-control" name="panel5Subtitle3"
+                                                                       value="@Model.panel5Subtitle3">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-5 Subtitle-3 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Xcalibur Reward Points Offers On This Account."
+                                                                       name="panel5Subtitle3Content"
+                                                                       value="@Model.panel5Subtitle3Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+                                                </table>
+
+                                            </div>
+                                        </section>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </section>
+                        </form>
+                    </div>
+                </div>
+
+                <!--End Panel 5-->
+                <!--Start Panel 6-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">PANEL-6</h3>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" action="/Admin/AccountDetailPanel6">
+                            <section class="panel">
+                                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                                    <div class="col-md-12">
+                                        <section class="panel">
+                                            <div class="panel-body">
+                                                <input type="hidden" value="@Model.type" name="type" />
+
+                                                <table border="0" width="100%">
+                                                    @{
+                                                        if (ViewBag.Panel == "Panel6")
+                                                        {
+                                                            <tr class='hideMe'>
+                                                                <td width="100%" colspan="2">
+                                                                    <div class="alert alert-success">Updated Successfully</div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-6 Title</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Employee Reimbursement A/c." class="form-control"
+                                                                       name="panel6Title" value="@Model.panel6Title">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-6 Subtitle-1</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Debit Card" class="form-control" name="panel6Subtitle1"
+                                                                       value="@Model.panel6Subtitle1">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-6 Subtitle-1 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Open The Account Simultaneously With A Salary Account"
+                                                                       name="panel6Subtitle1Content" value="@Model.panel6Subtitle1Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-6 Subtitle-2</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Product Features" class="form-control" name="panel6Subtitle2"
+                                                                       value="@Model.panel6Subtitle2">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-6 Subtitle-2 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Track Reimbursements Separately On This Account"
+                                                                       name="panel6Subtitle2Content" value="@Model.panel6Subtitle2Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-6 Subtitle-3</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="Offers & Discounts" class="form-control" name="panel6Subtitle3"
+                                                                       value="@Model.panel6Subtitle3">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">#Panel-6 Subtitle-3 Content</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="text" required placeholder="3.5% Interest On Daily Balances For This Account."
+                                                                       name="panel6Subtitle3Content"
+                                                                       value="@Model.panel6Subtitle3Content" class="form-control">
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+
+
+                                                </table>
+
+                                            </div>
+                                        </section>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </section>
+                        </form>
+                    </div>
+                </div>
+
+                <!--End Panel 6-->
+
+
+
+            </section>
+        </section>
+
+    </section>
+    <script src="/admin_assets/js/jquery.js"></script>
+    <script src="/admin_assets/js/jquery-1.8.3.min.js"></script>
+    <script src="/admin_assets/bs3/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="/admin_assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/admin_assets/js/jquery.nicescroll.js"></script>
+    <script src="/admin_assets/js/chart-js/Chart.js"></script>
+    <script src="/admin_assets/js/chartjs.init.js"></script>
+    <script src="/admin_assets/js/scripts.js"></script>
+    <script src="/admin_assets/js/css3clock/js/css3clock.js"></script>
+    <script>
+        $(document).scroll(function () {
+            localStorage['page'] = document.URL;
+            localStorage['scrollTop'] = $(document).scrollTop();
+        });
+
+        $(document).ready(function () {
+
+            var trow = $(".hideMe");
+            setTimeout(function () {
+                trow.fadeOut();
+            }, 3000);
+
+            if (localStorage['page'] == document.URL) {
+                $(document).scrollTop(localStorage['scrollTop']);
+            }
+        });
+    </script>
+</body>
+</html>

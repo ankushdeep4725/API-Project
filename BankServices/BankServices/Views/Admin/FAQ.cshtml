@@ -1,0 +1,604 @@
+﻿@model IEnumerable<BankServices.Models.FAQDto>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/logo_res.png">
+    <title>E-Banking</title>
+    <link href="/admin_assets/js/css3clock/css/style.css" rel="stylesheet">
+    <link href="/admin_assets/bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/admin_assets/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="/admin_assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/admin_assets/css/style.css" rel="stylesheet">
+    <link href="/admin_assets/css/style-responsive.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="container">
+        <header class="header fixed-top clearfix">
+            <div class="brand">
+                <a href="/Admin/Savings" class="logo">
+                    <img src="/admin_assets/images/logo.png" alt="">
+                </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
+            <div class="top-nav clearfix">
+                <ul class="nav pull-right top-menu">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="/admin_assets/images/avatar1_small.jpg">
+                            <span class="username">Administrator</span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+            </div>
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <div class="leftside-navigation">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <li>
+                            <a href="/Admin/Savings">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Savings Account</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/Salary">
+                                <i class="fa fa-users"></i>
+                                <span>Salary Account</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/Current">
+                                <i class="fa fa-book"></i>
+                                <span>Current Account</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/DirectInvest">
+                                <i class="fa fa-retweet"></i>
+                                <span>Direct Invest Account</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/SafeDeposit">
+                                <i class="fa fa fa-th"></i>
+                                <span>Safe Deposit Lockers</span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/Admin/Pension">
+                                <i class="fa fa-mail-forward (alias)"></i>
+                                <span>Pension Disbursement A/c.</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin/FAQ" class="active">
+                                <i class="fa fa-archive"></i>
+                                <span>FAQ's</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="/Admin/Logout">
+                                <i class="fa fa-power-off"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </aside>
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">Frequently Asked Questions</h3>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <form action="">
+                            <section class="panel">
+                                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                                    <div class="col-md-12">
+                                        <section class="panel">
+                                            <div class="panel-body">
+
+
+                                                <table border="0" width="100%">
+                                                    @{
+        if (ViewBag.Panel == "MainPanel")
+        {
+                                                <tr class='hideMe'>
+                                                    <td width="100%" colspan="2">
+                                                        <div class="alert alert-success">Updated Successfully</div>
+                                                    </td>
+                                                </tr>
+}
+                                                    }
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">FAQ's</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <select class="form-control" id="faqSelect" required>
+                                                                    <option value="">-- Select Your Question --</option>
+                                                                    @{
+                        foreach (var item in Model)
+                        {
+                                                <option value="@item.id">@item.question</option>
+}
+                                                                    }
+                                                                </select>
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Question</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <input type="hidden" id="hdnid" name="hdnid" />
+                                                                <textarea rows="3" cols="5" placeholder="Question" required id="question" name="question" class="form-control"></textarea>
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td width="30%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Answer</h4>
+                                                        </td>
+
+                                                        <td width="70%">
+                                                            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                                                                <textarea rows="3" cols="5" placeholder="Answer" required id="answer" name="answer" class="form-control"></textarea>
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <button type="submit" id="update" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </form>
+
+                        </div>
+                    </div>
+
+
+
+                                                    @*<div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="profile-nav alt">
+                                                                <section class="panel" style="border:1px dashed #1fb5ac;">
+                                                                    <table width="100%">
+                                                                        <tr>
+                                                                            <td colspan="3" align="center">
+                                                                                <h4 style="background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-size:22px; font-weight:bold; font-family:'MS Serif', 'New York', serif;">Frequently Asked Questions</h4>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="300px">
+                                                                                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; margin-left:20px; font-size:17px; font-weight:bold;">FAQ's</h4>
+                                                                            </td>
+                                                                            <td width="100px" align="center">
+                                                                                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                                                                            </td>
+                                                                            <td width="270px">
+                                                                                <select class="form-control" id="faqSelect">
+                                                                                    <option value="0">-- Select FAQ --</option>
+                                                                                    @{
+                                                                            foreach (var item in Model)
+                                                                            {
+                                                                                <option value="@item.id">@item.question</option>
+                                                                }
+                                                                                    }
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="300px">
+                                                                                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; margin-left:20px; font-size:17px; font-weight:bold;">Question</h4>
+                                                                            </td>
+                                                                            <td width="100px" align="center">
+                                                                                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                                                                            </td>
+                                                                            <td width="270px">
+                                                                                <input type="hidden" id="hdnid" name="hdnid" />
+                                                                                <input type="text" id="question" name="question" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="300px">
+                                                                                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; margin-left:20px; font-size:17px; font-weight:bold;">Answer</h4>
+                                                                            </td>
+                                                                            <td width="100px" align="center">
+                                                                                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                                                                            </td>
+                                                                            <td width="270px">
+                                                                                <input type="text" id="answer" name="answer" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="3">
+                                                                                <input type="submit" id="update" name="update" value="Update FAQ" />
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </table>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                    </div>*@
+
+                                        </section>
+                            </section>
+
+                            <div class="right-sidebar">
+                                <div class="search-row">
+                                    <h3 style="color:#FFF; font-size:17px; font-family:'MS Serif', 'New York', serif; font-weight:bold; text-align:center; cursor:default;">Daily Schedules</h3>
+                                </div>
+                                <div class="right-stat-bar">
+                                    <ul class="right-side-accordion">
+                                        <li class="widget-collapsible">
+                                            <a href="#" class="head widget-head red-bg active clearfix">
+                                                <span class="pull-left">work Progress</span>
+                                                <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                                            </a>
+                                            <ul class="widget-container">
+                                                <li>
+                                                    <div class="prog-row side-mini-stat clearfix">
+                                                        <div class="side-graph-info">
+                                                            <h4>Target Sale</h4>
+                                                            <p>
+                                                                25%, Deadline Target
+                                                            </p>
+                                                        </div>
+                                                        <div class="side-mini-graph">
+                                                            <div class="target-sell">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row side-mini-stat">
+                                                        <div class="side-graph-info">
+                                                            <h4>Product Delivery</h4>
+                                                            <p>
+                                                                55%, Deadline Meet
+                                                            </p>
+                                                        </div>
+                                                        <div class="side-mini-graph">
+                                                            <div class="p-delivery">
+                                                                <div class="sparkline" data-type="bar" data-resize="true" data-height="30" data-width="90%" data-bar-color="#39b7ab" data-bar-width="5" data-data="[200,135,667,333,526,996,564,123,890,564,455]">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row side-mini-stat">
+                                                        <div class="side-graph-info payment-info">
+                                                            <h4>Payment Collection</h4>
+                                                            <p>
+                                                                88%, Upto The Mark
+                                                            </p>
+                                                        </div>
+                                                        <div class="side-mini-graph">
+                                                            <div class="p-collection">
+                                                                <span class="pc-epie-chart" data-percent="45">
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row side-mini-stat">
+                                                        <div class="side-graph-info">
+                                                            <h4>Delivery Pending</h4>
+                                                            <p>
+                                                                44%, Deadline Nearby
+                                                            </p>
+                                                        </div>
+                                                        <div class="side-mini-graph">
+                                                            <div class="d-pending">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row side-mini-stat">
+                                                        <div class="col-md-12">
+                                                            <h4>Total Progress</h4>
+                                                            <p>
+                                                                67%, Approachable
+                                                            </p>
+                                                            <div class="progress progress-xs mtop10">
+                                                                <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" class="progress-bar progress-bar-info">
+                                                                    <span class="sr-only">67% Complete</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="widget-collapsible">
+                                            <a href="#" class="head widget-head terques-bg active clearfix">
+                                                <span class="pull-left">contacts</span>
+                                                <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                                            </a>
+                                            <ul class="widget-container">
+                                                <li>
+                                                    <div class="prog-row">
+                                                        <div class="user-thumb">
+                                                            <a href="#"><img src="images/avatar1_small.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="user-details">
+                                                            <h4><a href="#">Jonathan Smith</a></h4>
+                                                            <p>
+                                                                Available
+                                                            </p>
+                                                        </div>
+                                                        <div class="user-status text-danger">
+                                                            <i class="fa fa-comments-o"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row">
+                                                        <div class="user-thumb">
+                                                            <a href="#"><img src="images/avatar1.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="user-details">
+                                                            <h4><a href="#">Anjelina Joe</a></h4>
+                                                            <p>
+                                                                Available
+                                                            </p>
+                                                        </div>
+                                                        <div class="user-status text-success">
+                                                            <i class="fa fa-comments-o"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row">
+                                                        <div class="user-thumb">
+                                                            <a href="#"><img src="images/chat-avatar2.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="user-details">
+                                                            <h4><a href="#">John Doe</a></h4>
+                                                            <p>
+                                                                Away from Desk
+                                                            </p>
+                                                        </div>
+                                                        <div class="user-status text-warning">
+                                                            <i class="fa fa-comments-o"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row">
+                                                        <div class="user-thumb">
+                                                            <a href="#"><img src="images/avatar1_small.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="user-details">
+                                                            <h4><a href="#">Mark Henry</a></h4>
+                                                            <p>
+                                                                Working
+                                                            </p>
+                                                        </div>
+                                                        <div class="user-status text-info">
+                                                            <i class="fa fa-comments-o"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row">
+                                                        <div class="user-thumb">
+                                                            <a href="#"><img src="images/avatar1.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="user-details">
+                                                            <h4><a href="#">Shila Jones</a></h4>
+                                                            <p>
+                                                                Available
+                                                            </p>
+                                                        </div>
+                                                        <div class="user-status text-danger">
+                                                            <i class="fa fa-comments-o"></i>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-center">
+
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="widget-collapsible">
+                                            <a href="#" class="head widget-head purple-bg active">
+                                                <span class="pull-left"> recent activity</span>
+                                                <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                                            </a>
+                                            <ul class="widget-container">
+                                                <li>
+                                                    <div class="prog-row">
+                                                        <div class="user-thumb rsn-activity">
+                                                            <i class="fa fa-clock-o"></i>
+                                                        </div>
+                                                        <div class="rsn-details ">
+                                                            <p class="text-muted">
+                                                                Just Now
+                                                            </p>
+                                                            <p>
+                                                                <a href="#">Jim Doe </a>Purchased New Equipments For Zonal Office Setup
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row">
+                                                        <div class="user-thumb rsn-activity">
+                                                            <i class="fa fa-clock-o"></i>
+                                                        </div>
+                                                        <div class="rsn-details ">
+                                                            <p class="text-muted">
+                                                                2 Min Ago
+                                                            </p>
+                                                            <p>
+                                                                <a href="#">Jane Henry </a>Delivered Products Successfully
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prog-row">
+                                                        <div class="user-thumb rsn-activity">
+                                                            <i class="fa fa-clock-o"></i>
+                                                        </div>
+                                                        <div class="rsn-details ">
+                                                            <p class="text-muted">
+                                                                1 Day Ago
+                                                            </p>
+                                                            <p>
+                                                                <a href="#">Shila Jones </a>Organised BOD Meet Successfully
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="widget-collapsible">
+                                            <a href="#" class="head widget-head yellow-bg active">
+                                                <span class="pull-left"> shipment status</span>
+                                                <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+                                            </a>
+                                            <ul class="widget-container">
+                                                <li>
+                                                    <div class="col-md-12">
+                                                        <div class="prog-row">
+                                                            <p>
+                                                                Plastic Cards Parcel (SL: 17665) on the way
+                                                            </p>
+                                                            <div class="progress progress-xs mtop10">
+                                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 69%">
+                                                                    <span class="sr-only">69% Complete</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="prog-row">
+                                                            <p>
+                                                                New Brochure Designs Parcel (SL: 13484) delayed
+                                                            </p>
+                                                            <div class="progress progress-xs mtop10">
+                                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                                    <span class="sr-only">35% Completed</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+            </section>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script class="include" type="text/javascript" src="/admin_assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/admin_assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="/admin_assets/js/chartjs.init.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            var trow = $(".hideMe");
+            setTimeout(function () {
+                trow.fadeOut();
+            }, 3000);
+
+
+            $("#faqSelect").change(function () {
+                var val = $(this).val();
+
+                if (val == "")
+                {
+                    $("#question").val("");
+                    $("#answer").val("");
+                    return false;
+                }
+                $.ajax({
+                    url: '/Admin/FAQ',
+                    type: "POST",
+                    data: { id: val },
+                    success: function (data) {
+                        console.log(data);
+                        $("#hdnid").val(data.id);
+                        $("#question").val(data.question);
+                        $("#answer").val(data.answer);
+                    },
+                    statusCode: {
+                        404: function (content) { alert('cannot find resource'); },
+                        500: function (content) { alert('internal server error'); }
+                    },
+                    error: function (req, status, errorObj) {
+                        // handle status === "timeout"
+                        // handle other errors
+                    }
+                });
+            });
+
+
+            $("form").submit(function () {
+                var id = $("#hdnid").val();
+                var question = $("#question").val();
+                var answer = $("#answer").val();
+                if (id == "") {
+                    $("#question").val("");
+                    $("#answer").val("");
+                    return false;
+                }
+                $.ajax({
+                    url: '/Admin/UpdateFAQ',
+                    type: "POST",
+                    data: { id: id, question:question, answer: answer},
+                    success: function (data) {
+                        if (data) {
+                            location.href = "/Admin/FAQ";
+                        }
+                    },
+                    statusCode: {
+                        404: function (content) { alert('cannot find resource'); },
+                        500: function (content) { alert('internal server error'); }
+                    },
+                    error: function (req, status, errorObj) {
+                        // handle status === "timeout"
+                        // handle other errors
+                    }
+                });
+            });
+
+
+        });
+    </script>
+
+</body>
+</html>
