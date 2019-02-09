@@ -1,0 +1,251 @@
+
+<section id="main-content" >
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+            <section class="panel"  style="border:1px dashed #1fb5ac;">
+            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">Transfer Funds to Registered Beneficiary</h3>
+            </section>
+            </div>
+        </div>
+
+        <div class="row">
+        
+        
+                <div class="col-md-12">
+                
+                    <section class="panel" style="border:1px dashed #1fb5ac;">
+                    <h4 style="text-align:center; background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-weight:bold; font-size:22px; font-family:'MS Serif', 'New York', serif;">Account Details</h4>
+                    <div class="panel-body">
+                        
+                            <div class="profile-nav alt">
+                
+                <div class="col-md-6">
+            <div class="profile-nav alt">
+                <section class="panel">
+                <div class="panel-body">
+                            <div class="tab-content tasi-tab">
+                                <div id="overview" class="tab-pane active">
+                                    <div class="row">
+                <table width="650" border="0" style="margin-top:15px;" *ngIf="profileData">    
+                    
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Balance</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">$ {{profileData.accountbalance}}</h4>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Holder</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.firstname}} {{profileData.lastname}}</h4>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Username</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.username}}</h4>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. No.</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.accountnumber}}</h4>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Created</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.createdon | date}}</h4>
+                    </td>
+                    </tr>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                                    
+                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                   
+                </section>
+            </div>
+          </div>
+          
+                </div>
+                     </div>
+                    </section>
+                </div>
+                        </div>
+                        
+   
+                        
+        <div class="row">
+            <form method="post" ngNativeValidate>
+            <div class="col-md-12">
+                <section class="panel">
+                    <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+            <div class="col-md-12">
+                <section class="panel">
+                    <div class="panel-body">
+
+                        <form (ngSubmit)="fundsTransfer()" ngNativeValidate>
+                            <table border="0" width="100%">    
+                    
+
+                    <tr>
+                        <td width="50%">
+                        <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Name</h4>
+                        </td>
+                        <td width="50%">
+                        <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                            <input type="text" placeholder=" " id="c-name" class="form-control" 
+                            name="transactionsModelname" value="" required
+                            [(ngModel)]="transactionsModel.name"></h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Nick Name</h4>
+                    </td>
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                        <input type="text" placeholder=" " id="c-name" class="form-control" 
+                        name="beneficiarynickname" value="" required
+                        [(ngModel)]="transactionsModel.nickName"></h4>
+                    </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Account No.</h4>
+                    </td>
+                    
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                        <input type="text" placeholder=" " id="c-name" class="form-control" 
+                        name="beneficiaryaccountnumber" value="" required
+                        [(ngModel)]="transactionsModel.receiverAccountNumber"></h4>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Confirm A/c. No.</h4>
+                    </td>
+                    
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                        <input type="text" placeholder=" " id="c-name" class="form-control" 
+                        name="confirmaccountnumber" value="" required
+                        [(ngModel)]="confirmAccountNumber"></h4>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">IFSC Code</h4>
+                    </td>
+                    
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                        <input type="text" placeholder=" " id="c-name" class="form-control" 
+                        name="transactionsModelifsccode" value="" required
+                        [(ngModel)]="transactionsModel.ifsccode"></h4>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Transfer Amount</h4>
+                    </td>
+                    
+                    <td width="50%">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                        <!-- <input type="text" placeholder=" " id="c-name" class="form-control" 
+                        name="beneficiaryaddress" value="" required
+                        [(ngModel)]="beneficiaryModel.address"> -->
+                        <input type="text" placeholder=" " id="c-name" 
+                class="form-control" [(ngModel)]="transactionsModel.debitAmount" name="debitamt" required>
+                    </h4>
+                    </td>
+                    </tr>
+
+
+                    <tr>
+                        <td width="50%">
+                        <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Transaction Password</h4>
+                        </td>
+                        
+                        <td width="50%">
+                        <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                            <input type="password" placeholder=" " id="c-name" 
+                            class="form-control" [(ngModel)]="transactionpaswd" name="transactionpaswd" required></h4>
+                        </td>
+                        </tr>
+                    
+                   <tr>
+                   <td height="30">
+                   <!-- <span *ngIf="responsemessage">{{responsemessage}}</span> -->
+                   </td>
+                   </tr>
+                   
+                   <tr>
+                   <td width="100%" colspan="2" align="center">
+                   <button type="submit" class="btn btn-primary" >Transfer Funds</button> 
+                            <button type="button" class="btn btn-default"
+                            style="margin-left:10px !important;"
+                             (click)="onCancel()">Cancel</button>
+                       </td>
+                       </tr>             
+                    </table>
+                    </form>
+                    </div>
+                </section>
+            </div>
+                    </div>
+                    
+           
+                </section>
+             </div> 
+            </form>
+         </div>  
+               
+
+    </section>
+</section>

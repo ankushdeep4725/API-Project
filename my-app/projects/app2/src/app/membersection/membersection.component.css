@@ -1,0 +1,33 @@
+.logo{
+	content:url(../../images/logo.png);
+}
+
+
+.avatar2{
+	content:url(../../images/avatar-mini-2.jpg);
+}
+
+.avatar1{
+	content:url(../../images/avatar-mini.jpg);
+}
+
+.avatar3{
+	content:url(../../images/avatar-mini-3.jpg);
+}
+
+.avatar4{
+	content:url(../../images/avatar-mini-4.jpg);
+}
+
+
+
+body {
+	background: none;
+	color:#767676;
+    background:#f1f2f7;
+    font-family:'Open Sans',sans-serif;
+    padding:0px !important;
+    margin:0px !important;
+    font-size:13px;
+    text-rendering:optimizeLegibility;
+}

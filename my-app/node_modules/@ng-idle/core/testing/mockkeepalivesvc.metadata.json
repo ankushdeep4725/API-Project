@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{"MockKeepaliveSvc":{"__symbolic":"class","extends":{"__symbolic":"reference","module":"@ng-idle/core","name":"KeepaliveSvc","line":2,"character":38},"members":{"start":[{"__symbolic":"method"}],"stop":[{"__symbolic":"method"}],"ping":[{"__symbolic":"method"}]}}}}]

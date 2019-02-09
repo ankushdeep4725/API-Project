@@ -1,0 +1,59 @@
+<!-- .lock-screen {
+    background: #1FB3A3 url("../images/lock-screen.jpg") no-repeat fixed 0 0 / cover;
+} -->
+
+<div class="lock-wrapper">
+    <div class="lock-box text-center">
+        <div class="lock-name">{{fullName}}</div>
+        <img class="lockscreen" [src]="image" *ngIf="image"/>
+        <div class="lock-pwd">
+            <form role="form" class="form-inline" (ngSubmit)="login()" ngNativeValidate>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" 
+                    name="password" value="" required
+                    [(ngModel)]="userModel.password"
+                        id="exampleInputPassword2" class="form-control lock-input">
+                    <button class="btn btn-lock" type="submit">
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+            </form>
+           
+        </div>
+        
+    </div> 
+    <div class="lock-pwd" style="width: 49% !important;
+    float: left;
+    margin-left: 23%;
+    margin-top: 63px;
+    font-size: 28px;
+    border-radius: 26px;">
+        <a href="javascript:void(0)" (click)="onLogout()">Logout</a>
+    </div>
+</div>
+<!-- </div>
+
+<script>
+    function startTime()
+        {
+            var today=new Date();
+            var h=today.getHours();
+            var m=today.getMinutes();
+            var s=today.getSeconds();
+            // add a zero in front of numbers<10
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById('time').innerHTML=h+":"+m+":"+s;
+            t=setTimeout(function(){startTime()},500);
+        }
+
+        function checkTime(i)
+        {
+            if (i<10)
+            {
+                i="0" + i;
+            }
+            return i;
+        }
+</script> -->

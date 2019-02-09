@@ -1,0 +1,48 @@
+<ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <img [src]="images[0]" style="width:100%" alt="Random first slide">
+      <div class="carousel-caption" style="padding-bottom: 100px !important;">
+        <h2 style="color:white;text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 36px;">Welcome to Xcalibur Bank</h2>
+        <p style="color:white;font-size: 25px;">The financial world is in state of constant change, every day brings new ways of creating wealth</p>
+        
+      </div>
+    </ng-template>
+
+     <ng-template ngbSlide> 
+      <img [src]="images[1]" style="width:100%" alt="Random second slide">
+      <div class="carousel-caption" style="padding-bottom: 100px !important;">
+        <h2 style="color:white;text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 36px;">Banking The Way You Like</h2>
+        <p style="color:white;font-size: 25px;"> The only way to navigate the clutter of ideas and information is to arm yourself with expert knowledge</p>
+       
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img [src]="images[2]" style="width:100%" alt="Random third slide">
+      <div class="carousel-caption" style="padding-bottom: 100px !important;">
+        <h2 style="color:white;text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 36px;">Retail & Corporate Banking</h2>
+        <p style="color:white;font-size: 25px;"> Consumer Banking is the provision of services by a bank to individual consumers, rather than to companies, corporations or other banks</p>
+       
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <img [src]="images[3]" style="width:100%" alt="Random third slide">
+        <div class="carousel-caption" style="padding-bottom: 100px !important;">
+            <h2 style="color:white;text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 36px;">Bank of New Zealand</h2>
+            <p style="color:white;font-size: 25px;">Bank of New Zealand is one of New Zealand's big four banks and has been operating in the country since October 1861 in Auckland, New Zealand</p>
+           
+        </div>
+    </ng-template>
+  </ngb-carousel>
+  

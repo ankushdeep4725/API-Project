@@ -1,0 +1,175 @@
+
+
+<section id="main-content" >
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+            <section class="panel"  style="border:1px dashed #1fb5ac;">
+            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">Issue Checkbook</h3>
+            </section>
+            </div>
+        </div>
+
+        <div class="row">
+        
+        
+                <div class="col-md-12">
+                
+                    <section class="panel" style="border:1px dashed #1fb5ac;">
+                    <h4 style="text-align:center; background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-weight:bold; font-size:22px; font-family:'MS Serif', 'New York', serif;">Account Details</h4>
+                    <div class="panel-body">
+                        
+                            <div class="profile-nav alt">
+                
+                <div class="col-md-6">
+            <div class="profile-nav alt">
+                <section class="panel">
+                <div class="panel-body">
+                            <div class="tab-content tasi-tab">
+                                <div id="overview" class="tab-pane active">
+                                    <div class="row">
+                <table width="650" border="0" style="margin-top:15px;" *ngIf="profileData">    
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Balance</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">$ {{profileData.accountbalance}}</h4>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Holder</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.firstname}} {{profileData.lastname}}</h4>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Username</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.username}}</h4>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. No.</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.accountnumber}}</h4>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Created</h4>
+                    </td>
+                    <td width="150" align="center">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                    </td>
+                    <td width="250">
+                    <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.createdon | date}}</h4>
+                    </td>
+                    </tr>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                                    
+                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                   
+                </section>
+            </div>
+          </div>
+          
+                </div>
+                     </div>
+                    </section>
+                </div>
+                        </div>
+                        
+   
+                        
+        <div class="row">
+            <form method="post" ngNativeValidate>
+            <div class="col-md-12">
+                <section class="panel">
+                    <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+            <div class="col-md-12">
+                <section class="panel">
+                    <div class="panel-body">
+
+
+                    <table border="0" width="100%" *ngIf="profileData">    
+           
+          
+            <tr>
+            <td width="40%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Number of Pages</h4>
+            </td>
+            
+            <td width="60%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+           
+            <input type="radio" name="pages" value="10" checked [(ngModel)]="checkbookModel.numberOfPages" > 10 Pages
+             &nbsp;&nbsp;
+            <input type="radio" name="pages" value="20" [(ngModel)]="checkbookModel.numberOfPages">20 Pages
+            &nbsp;&nbsp;
+            <input type="radio" name="pages" value="25" [(ngModel)]="checkbookModel.numberOfPages">25 Pages
+            &nbsp;&nbsp;
+            <input type="radio" name="pages" value="50" [(ngModel)]="checkbookModel.numberOfPages">50 Pages
+          </h4>
+            </td>
+            </tr>
+            
+                            
+            </table>
+
+                    </div>
+                </section>
+            </div>
+            
+                       
+           <div class="row">
+           <div class="col-md-12" align="center"> 
+                    <!-- <span *ngIf="responsemessage">{{responsemessage}} </span> -->
+                    <button type="button" class="btn btn-primary" (click)="applyCheckbook()">Apply For Checkbook</button> 
+                    <!-- <button type="button" class="btn btn-default">Cancel</button> -->
+                    </div>
+                    </div>
+                    </div>
+                    
+           
+                </section>
+             </div> 
+            </form>
+         </div>  
+               
+
+    </section>
+</section>
+
+

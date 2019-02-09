@@ -1,0 +1,370 @@
+<block-ui>
+<section id="main-content" >
+        <section class="wrapper">
+                <div class="row">
+                        <div class="col-md-12">
+                        <section class="panel"  style="border:1px dashed #1fb5ac;">
+                        <h3 align="center" *ngIf="profileData"
+                        style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:20px; font-size:24px;">
+                        Welcome {{profileData.firstname }} {{profileData.lastname }} </h3>
+                        </section>
+                        </div>
+                        </div>
+                        <div class="row">
+                                    <div class="col-sm-8">
+                                        <section class="panel" style="border:1px dashed #1fb5ac;">
+                                            <header class="panel-heading">
+                                                Recent Transactions
+                                            </header>
+                                            <div class="panel-body">
+                                                    <highcharts-chart *ngIf="isData" 
+                                                    [Highcharts]="Highcharts"
+                                                    [options]="chartOptions"
+                                                    style="width: 100%; height:250px; display: block;"
+                                                  ></highcharts-chart>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="col-md-4">
+                                <div class="profile-nav alt">
+                                    <section class="panel" style="border:1px dashed #1fb5ac;">
+                                        <div class="user-heading alt clock-row terques-bg">
+                                            <h1>{{setMonth}} {{setDate}}</h1>
+                                            <p class="text-left">{{setYear}}, {{setDay}}</p>
+                                            <p class="text-left">{{setTime | uppercase }}</p>
+                                        </div>
+                                        <ul id="clock">
+                                            <li id="sec"></li>
+                                            <li id="hour"></li>
+                                            <li id="min"></li>
+                                        </ul>
+                                        <ul class="clock-category" style="height:65px;">
+                                         
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                                </div>
+                        <div class="row">
+                            
+                            <div class="col-md-8">
+                            <div class="profile-nav alt">
+                                    <section class="panel" style="border:1px dashed #1fb5ac;">
+                            <table width="100%" *ngIf="profileData">
+                                        <tr>
+                                        <td colspan="3" align="center">
+                                        <h4 style="background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-size:22px; font-weight:bold; font-family:'MS Serif', 'New York', serif;">Account Summary</h4>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; margin-left:20px; font-size:17px; font-weight:bold;">A/c. Balance</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                                        </td>
+                                        <td width="270px">
+                                        <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">$ {{profileData.accountbalance}}</h4>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; margin-left:20px; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">A/c. Holder</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">:</h4>
+                                        </td>
+                                        <td>
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">{{profileData.firstname | uppercase}} {{profileData.lastname | uppercase}}</h4>
+                                        </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; margin-left:20px; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">User Name</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">:</h4>
+                                        </td>
+                                        <td>
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">{{profileData.username | uppercase}}</h4>
+                                        </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; margin-left:20px; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">A/c. No.</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">:</h4>
+                                        </td>
+                                        <td>
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">{{profileData.accountnumber}}</h4>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; margin-left:20px; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">A/c. Created</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">:</h4>
+                                        </td>
+                                        <td>
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">{{profileData.createdon | date}} {{profileData.createdon | date:'mediumTime'}} </h4>
+                                        </td>
+                                        </tr>
+                                        
+                                                   
+                                        </table>
+                                        </section>
+                                        </div>
+                                        
+                               
+                                        
+                                    </div>
+                                    <div class="col-md-4">
+                                <div class="profile-nav alt">
+                                    <section class="panel" style="border:1px dashed #1fb5ac;">
+                                    <h4 style="text-align:center; background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-weight:bold; font-size:22px; font-family:'MS Serif', 'New York', serif;">Notifications</h4>
+                                    
+                                  <marquee scrollamount="3" direction="up" style="color:#1fb5ac; font-size:17px; text-decoration:none; font-family:'MS Serif', 'New York', serif; font-weight:normal; text-align:left; margin-left:20px;">
+                                    1. Cheque Book Updates<br/>
+                                                2. Transaction Updates<br/>
+                                                3. Billing Updates <br/>
+                                                4. Credit Card Renewal<br/>
+                                    5. A/c. Statement Updates<br/>
+                                                6. Stock Policy Updates<br/>
+                                                7. Demat A/c. Updates<br/>
+                                                8. Loan Approval Updates
+                                            </marquee>
+                                    </section>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                    <div class="col-md-8">
+                            <div class="profile-nav alt">
+                                    <section class="panel" style="border:1px dashed #1fb5ac;">
+                                    <table width="100%" *ngIf="profileData">
+                                        <tr>
+                                        <td colspan="3" align="center">
+                                        <h4 style="background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-weight:bold; font-size:22px; font-family:'MS Serif', 'New York', serif;">Account Information</h4>
+                                        </td>
+                        
+                        </tr>                
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; margin-left:20px;font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">Last Login</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">:</h4>
+                                        </td>
+                                        <td>
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">{{profileData.lastlogin | date }}</h4>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; margin-left:20px; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">Last Login</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">:</h4>
+                                        </td>
+                                        <td>
+                                       <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">{{profileData.lastlogin | date:'mediumTime'}}</h4>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; margin-left:20px; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">Contact</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">:</h4>
+                                        </td>
+                                        <td>
+                                       <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">
+                                        <span *ngIf="profileData.contactnumber">{{profileData.contactnumber}}</span>
+                                        <span *ngIf="!profileData.contactnumber">N.A</span></h4>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td width="300px">
+                                        <h4 style="color:#1fb5ac; margin-left:20px; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">E-Mail</h4>
+                                        </td>
+                                        <td width="100px" align="center">
+                                        <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">:</h4>
+                                        </td>
+                                        <td>
+                                       <h4 style="color:#1fb5ac; font-weight:bold; font-size:17px; font-family:'MS Serif', 'New York', serif;">{{profileData.email}}</h4>
+                                        </td>
+                                        </tr>
+                                        
+                                        </table>
+                                        </section>
+                                        </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                <div class="profile-nav alt">
+                                    <section class="panel" style="height:200px; border:1px dashed #1fb5ac;">
+                                    <h4 style="text-align:center; background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-weight:bold; font-size:22px; font-family:'MS Serif', 'New York', serif;">To Do List</h4>
+                                    
+                                  <ul style="color:#1fb5ac; font-size:17px; text-decoration:none; font-family:'MS Serif', 'New York', serif; font-weight:normal; text-align:left; margin-left:5px;">
+                            
+                                      <li style="border:none; list-style-type:square;">Stock Market Analysis</li>
+                                            <li style="border:none; list-style-type:square;">Demat A/c Reshuffling</li>
+                                                <li style="border:none; list-style-type:square;">Currency Conversion</li>
+                                                <li style="border:none; list-style-type:square;">Debit Card Renewal</li>
+                                    <li style="border:none; list-style-type:square;">EMI Billing Updation</li>
+                                            </ul>
+                                    </section>
+                                </div>
+                            </div>
+                            
+                        </div>                                             
+        </section>
+</section>
+
+
+    
+<!-- <script>
+    //chartjs.init.js script
+    (function(){
+        var t;
+        function size(animate){
+            if (animate == undefined){
+                animate = false;
+            }
+            clearTimeout(t);
+            t = setTimeout(function(){
+                $("canvas").each(function(i,el){
+                    $(el).attr({
+                        "width":$(el).parent().width(),
+                        "height":$(el).parent().outerHeight()
+                    });
+                });
+                redraw(animate);
+                var m = 0;
+                $(".chartJS").height("");
+                $(".chartJS").each(function(i,el){ m = Math.max(m,$(el).height()); });
+                $(".chartJS").height(m);
+            }, 30);
+        }
+        $(window).on('resize', function(){ size(false); });
+    
+    
+        function redraw(animation){
+            var options = {};
+            if (!animation){
+                options.animation = false;
+            } else {
+                options.animation = true;
+            }
+    
+    
+            var barChartData = {
+                labels : ["21/12/2018","22/12/2018","23/12/2018","24/12/2018","25/12/2018","26/12/2018","27/12/2018"],
+                datasets : [
+                    {
+                        fillColor : "#E67A77",
+                        strokeColor : "#E67A77",
+                        data : [65,59,90,81,56,55,40]
+                    },
+                    {
+                        fillColor : "#1fb5ac",
+                        strokeColor : "#1fb5ac",
+                        data : [28,48,40,19,96,27,100]
+                    }
+                ]
+    
+            }
+    
+            var myLine = new Chart(document.getElementById("bar-chart-js").getContext("2d")).Bar(barChartData);
+    
+    
+            var Linedata = {
+                labels : ["January","February","March","April","May","June","July"],
+                datasets : [
+                    {
+                        fillColor : "#E67A77",
+                        strokeColor : "#E67A77",
+                        pointColor : "#E67A77",
+                        pointStrokeColor : "#fff",
+                        data : [100,159,190,281,156,155,140]
+                    },
+                    {
+                        fillColor : "#1fb5ac",
+                        strokeColor : "#1fb5ac",
+                        pointColor : "#1fb5ac",
+                        pointStrokeColor : "#fff",
+                        data : [65,59,90,181,56,55,40]
+                    },
+                    {
+                        fillColor : "#D9DD81",
+                        strokeColor : "#D9DD81",
+                        pointColor : "#D9DD81",
+                        pointStrokeColor : "#fff",
+                        data : [28,48,40,19,96,27,100]
+                    }
+    
+                ]
+            }
+            var myLineChart = new Chart(document.getElementById("line-chart-js").getContext("2d")).Line(Linedata);
+    
+    
+            var pieData = [
+                {
+                    value: 30,
+                    color:"#E67A77"
+                },
+                {
+                    value : 50,
+                    color : "#D9DD81"
+                },
+                {
+                    value : 100,
+                    color : "#1fb5ac"
+                }
+    
+            ];
+    
+            var myPie = new Chart(document.getElementById("pie-chart-js").getContext("2d")).Pie(pieData);
+    
+    
+    
+            var donutData = [
+                {
+                    value: 30,
+                    color:"#E67A77"
+                },
+                {
+                    value : 50,
+                    color : "#D9DD81"
+                },
+                {
+                    value : 100,
+                    color : "#1fb5ac"
+                },
+                {
+                    value : 40,
+                    color : "#95D7BB"
+                },
+                {
+                    value : 120,
+                    color : "#4D5360"
+                }
+    
+            ]
+            var myDonut = new Chart(document.getElementById("donut-chart-js").getContext("2d")).Doughnut(donutData);
+        }
+    
+    
+    
+    
+        size(true);
+    
+    }());
+</script> -->
+
+</block-ui>

@@ -1,0 +1,168 @@
+
+<section id="main-content" >
+    <section class="wrapper">
+<div class="row">
+<div class="col-md-12">
+<section class="panel"  style="border:1px dashed #1fb5ac;">
+<h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">User Profile</h3>
+</section>
+</div>
+</div>
+<div class="row" *ngIf="profileData">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body profile-information" style="border:1px dashed #1fb5ac;">
+                   <div class="col-md-3">
+                       <div class="profile-pic text-center">
+                           <img [src]="profileData.image" alt=""/>
+                       </div>
+                   </div>
+                   <div class="col-md-6">
+                       <div class="profile-desk">
+                           <h1>{{profileData.firstname}} {{profileData.lastname}} </h1>
+                           <span class="text-muted"></span>
+                           <p style="text-align:justify;">
+                               A past time user of this bank holding a very good experience of the services delivered by the bank. Timely updates, notifications and all other services in the convenient approachable manner have been the key features of the bank. 
+                           </p>
+                           
+                       </div>
+                   </div>
+                   <div class="col-md-3">
+                       <div class="profile-statistics">
+                           <h1>124</h1>
+                           <p>Followers This Week</p>
+                           <h1>27</h1>
+                           <p>Recent Updates</p>
+                           <ul>
+                               <li>
+                                   <a href="#">
+                                       <i class="fa fa-facebook"></i>
+                                   </a>
+                               </li>
+                               <li class="active">
+                                   <a href="#">
+                                       <i class="fa fa-twitter"></i>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="#">
+                                       <i class="fa fa-google-plus"></i>
+                                   </a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="col-md-12">
+        
+            <section class="panel" style="border:1px dashed #1fb5ac;">
+            <h4 style="text-align:center; background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-weight:bold; font-size:22px; font-family:'MS Serif', 'New York', serif;">Profile Information</h4>
+            <div class="panel-body">
+                
+                    <div class="profile-nav alt">
+        
+        <div class="col-md-6">
+    <div class="profile-nav alt">
+        <section class="panel">
+        <div class="panel-body">
+                    <div class="tab-content tasi-tab">
+                        <div id="overview" class="tab-pane active">
+                            <div class="row">
+        <table width="650" border="0" style="margin-top:15px;">    
+            <tr>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Username</h4>
+            </td>
+            <td width="150" align="center">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+            </td>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.username}}</h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. No.</h4>
+            </td>
+            <td width="150" align="center">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+            </td>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.accountnumber}}</h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Created</h4>
+            </td>
+            <td width="150" align="center">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+            </td>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.createdon | date }}</h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Date of Birth</h4>
+            </td>
+            <td width="150" align="center">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+            </td>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;"><span *ngIf="profileData.dateofbirth">{{profileData.dateofbirth }}</span> <span *ngIf="!profileData.dateofbirth">N.A</span></h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Gender</h4>
+            </td>
+            <td width="150" align="center">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+            </td>
+            <td width="250">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.gender}}</h4>
+            </td>
+            </tr>
+            </table>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+           
+        </section>
+    </div>
+  </div>
+  
+          <div class="col-md-6">
+                                    <div class="prf-contacts">
+                                        <h2> <span><i class="fa fa-map-marker"></i></span> location</h2>
+                                        <div class="location-info">
+                                            <p>{{profileData.location}}</p>
+                                            
+                                        </div>
+                                        <h2> <span><i class="fa fa-phone"></i></span> contacts</h2>
+                                        <div class="location-info">
+                                            <p>Phone	: <span *ngIf="profileData.contactnumber">{{profileData.contactnumber}}</span> 
+                                                          <span *ngIf="!profileData.contactnumber">N.A</span> 
+                                                <br>
+                                            Email		: {{profileData.email}}<br>
+                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+             </div>
+            </section>
+        </div>
+    </div>
+</section>
+</section>
+

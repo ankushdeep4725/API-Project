@@ -1,0 +1,155 @@
+
+<section id="main-content" >
+    <section class="wrapper">
+<div class="row">
+<div class="col-md-12">
+<section class="panel"  style="border:1px dashed #1fb5ac;">
+<h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">Beneficiaries List</h3>
+</section>
+</div>
+</div>
+<div class="row">
+        
+        
+        <div class="col-md-12">
+        
+            <section class="panel" style="border:1px dashed #1fb5ac;">
+            <h4 style="text-align:center; background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-weight:bold; font-size:22px; font-family:'MS Serif', 'New York', serif;">Account Details</h4>
+            <div class="panel-body">
+                
+                    <div class="profile-nav alt">
+        
+        <div class="col-md-6">
+    <div class="profile-nav alt">
+        <section class="panel">
+        <div class="panel-body">
+                    <div class="tab-content tasi-tab">
+                        <div id="overview" class="tab-pane active">
+                            <div class="row">
+        <table width="650" border="0" style="margin-top:15px;" *ngIf="profileData">    
+            
+            <tr>
+                <td width="250">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Holder</h4>
+                </td>
+                <td width="150" align="center">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                </td>
+                <td width="250">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.firstname}} {{profileData.lastname}}</h4>
+                </td>
+                </tr>
+                <tr>
+                <td width="250">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">Username</h4>
+                </td>
+                <td width="150" align="center">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                </td>
+                <td width="250">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.username}}</h4>
+                </td>
+                </tr>
+                
+                <tr>
+                <td width="250">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. No.</h4>
+                </td>
+                <td width="150" align="center">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                </td>
+                <td width="250">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.accountnumber}}</h4>
+                </td>
+                </tr>
+                
+                <tr>
+                <td width="250">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold;">A/c. Created</h4>
+                </td>
+                <td width="150" align="center">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">:</h4>
+                </td>
+                <td width="250">
+                <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">{{profileData.createdon | date}}</h4>
+                </td>
+                </tr>
+                
+               
+            
+            
+            
+            
+            
+                            
+            </table>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+           
+        </section>
+    </div>
+  </div>
+                    </div>
+             </div>
+            </section>
+        </div>
+
+               
+                
+  
+  
+  
+                </div>
+                
+                
+                <div class="row">
+        <div class="col-sm-12">
+            <section class="panel" style="border:1px dashed #1fb5ac;">
+                <header class="panel-heading">
+                    <h5 style="text-align:center; color:#1fb5ac; padding:0px; margin:0px; font-weight:bold; font-family:'MS Serif', 'New York', serif;">View Beneficiaries<br></h5>
+                    <span class="tools pull-right">
+                       
+                     </span>
+                </header>
+                <div class="panel-body">
+                    
+                        <table width="100%" border="1" style="border:1px solid #1fb5ac;" *ngIf="beneficiaryData">
+                            <thead>
+                            <tr>
+                                <th style="font-weight:bold; text-align:center; color:#1fb5ac; font-size:15px;">Sr.No.</th>
+                                <th style="font-weight:bold; text-align:center; color:#1fb5ac; font-size:15px;">Name</th>
+                                <th style="font-weight:bold; text-align:center; color:#1fb5ac; font-size:15px;">Nick Name</th>
+                                <th style="font-weight:bold; text-align:center; color:#1fb5ac; font-size:15px;">Account Number</th>
+                                <th style="font-weight:bold; text-align:center; color:#1fb5ac; font-size:15px;">IFSC Code</th>
+                                <!-- <th style="font-weight:bold; text-align:center; color:#1fb5ac; font-size:15px;">Max Amount</th>
+                                <th style="font-weight:bold; text-align:center; color:#1fb5ac; font-size:15px;">Max Transactions</th> -->
+                                <th style="font-weight:bold; text-align:center; color:#1fb5ac; font-size:15px;">Address</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let bene of beneficiaryData;let i= index" >
+                                <td style="text-align:center; font-weight:bold;">{{i + 1 }}</td>
+                                <td style="text-align:center; font-weight:bold;">{{bene.name}}</td>
+                                <td style="text-align:center; font-weight:bold;">{{bene.nickname}}</td>
+                                <td style="text-align:center; font-weight:bold;">{{bene.accountnumber}}</td>
+                                <td style="text-align:center; font-weight:bold;">{{bene.ifsccode}}</td>
+                                <!-- <td style="text-align:center; font-weight:bold;">{{bene.maxamount}}</td>
+                                <td style="text-align:center; font-weight:bold;">{{bene.maxtransactions}}</td> -->
+                                <td style="text-align:center; font-weight:bold;">{{bene.address}}</td>
+                            </tr>
+                            
+                          
+                            </tbody>
+                        </table>
+
+                </div>
+            </section>
+            
+        </div>
+    </div>
+                
+            </section>
+            
+    </section>

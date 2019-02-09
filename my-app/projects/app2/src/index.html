@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <title>Xcalibur || Admin</title>
+
+    <base href="/">
+
+  </head>
+
+  <body>
+
+        
+                    
+                <app-root></app-root>
+
+                   
+    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link src="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" type="fonts"/>
+    <link src="http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic"/>
+    
+    <script>
+
+      //jquery.dcjqaccordion.2.7.js script
+      setTimeout(function(){
+      $.fn.dcAccordion = function(options) {
+
+          var defaults = {
+            classParent	 : 'dcjq-parent',
+            classActive	 : 'active',
+            classArrow	 : 'dcjq-icon',
+            classCount	 : 'dcjq-count',
+            classExpand	 : 'dcjq-current-parent',
+            eventType	 : 'click',
+            hoverDelay	 : 300,
+            menuClose     : true,
+            autoClose    : true,
+            autoExpand	 : false,
+            speed        : 'slow',
+            saveState	 : true,
+            disableLink	 : true,
+            showCount : false,
+
+          };
+
+          var options = $.extend(defaults, options);
+
+          this.each(function(options){
+
+            var obj = this;
+            setUpAccordion();
+            if(defaults.autoExpand == true){
+              $('li.'+defaults.classExpand+' > a').addClass(defaults.classActive);
+            }
+            resetAccordion();
+
+            if(defaults.eventType == 'hover'){
+
+              var config = {
+                sensitivity: 2,
+                interval: defaults.hoverDelay,
+                over: linkOver,
+                timeout: defaults.hoverDelay, 
+                out: linkOut
+                };
+
+              $('li a',obj).hoverIntent(config);
+              var configMenu = {
+                sensitivity: 2,
+                interval: 1000,
+                over: menuOver,
+                timeout: 1000, 
+                out: menuOut 
+                };
+
+              $(obj).hoverIntent(configMenu);
+
+
+              if(defaults.disableLink == true){
+
+                $('li a',obj).click(function(e){
+                  if($(this).siblings('ul').length >0){
+                    e.preventDefault();
+                  }
+                });
+              }
+
+            } else {
+            
+              $('li a',obj).click(function(e){
+
+                $activeLi = $(this).parent('li');
+                $parentsLi = $activeLi.parents('li');
+                $parentsUl = $activeLi.parents('ul');
+
+
+                if(defaults.disableLink == true){
+                  if($(this).siblings('ul').length >0){
+                    e.preventDefault();
+                  }
+                }
+
+
+                if(defaults.autoClose == true){
+                  autoCloseAccordion($parentsLi, $parentsUl);
+                }
+
+                if ($('> ul',$activeLi).is(':visible')){
+                  $('ul',$activeLi).slideUp(defaults.speed);
+                  $('a',$activeLi).removeClass(defaults.classActive);
+                } else {
+                  $(this).siblings('ul').slideToggle(defaults.speed);
+                  $('> a',$activeLi).addClass(defaults.classActive);
+                }
+                
+              });
+            }
+
+
+            function setUpAccordion(){
+
+              $arrow = '<span class="'+defaults.classArrow+'"></span>';
+              var classParentLi = defaults.classParent+'-li';
+              $('> ul',obj).show();
+              $('li',obj).each(function(){
+                if($('> ul',this).length > 0){
+                  $(this).addClass(classParentLi);
+                  $('> a',this).addClass(defaults.classParent).append($arrow);
+                }
+              });
+              $('> ul',obj).hide();
+              if(defaults.showCount == true){
+                $('li.'+classParentLi,obj).each(function(){
+                  if(defaults.disableLink == true){
+                    var getCount = parseInt($('ul a:not(.'+defaults.classParent+')',this).length);
+                  } else {
+                    var getCount = parseInt($('ul a',this).length);
+                  }
+                  $('> a',this).append(' <span class="'+defaults.classCount+'">'+getCount+'</span>');
+                });
+              }
+            }
+            
+            function linkOver(){
+
+            $activeLi = $(this).parent('li');
+            $parentsLi = $activeLi.parents('li');
+            $parentsUl = $activeLi.parents('ul');
+
+            // Auto close sibling menus
+            if(defaults.autoClose == true){
+              autoCloseAccordion($parentsLi, $parentsUl);
+
+            }
+
+            if ($('> ul',$activeLi).is(':visible')){
+              $('ul',$activeLi).slideUp(defaults.speed);
+              $('a',$activeLi).removeClass(defaults.classActive);
+            } else {
+              $(this).siblings('ul').slideToggle(defaults.speed);
+              $('> a',$activeLi).addClass(defaults.classActive);
+            }
+
+
+            if(defaults.saveState == true){
+              createCookie(defaults.cookie, obj);
+            }
+          }
+
+          function linkOut(){
+          }
+
+          function menuOver(){
+          }
+
+          function menuOut(){
+
+            if(defaults.menuClose == true){
+              $('ul',obj).slideUp(defaults.speed);
+              // Reset active links
+              $('a',obj).removeClass(defaults.classActive);
+              createCookie(defaults.cookie, obj);
+            }
+          }
+
+
+          function autoCloseAccordion($parentsLi, $parentsUl){
+            $('ul',obj).not($parentsUl).slideUp(defaults.speed);
+
+            $('a',obj).removeClass(defaults.classActive);
+            $('> a',$parentsLi).addClass(defaults.classActive);
+          }
+          // Reset accordion using active links
+          function resetAccordion(){
+            $('ul',obj).hide();
+            $allActiveLi = $('a.'+defaults.classActive,obj);
+            $allActiveLi.siblings('ul').show();
+          }
+          });
+
+    }
+},1500);
+
+
+
+
+      //scripts.js script
+       $(document).ready(function () {
+
+      setTimeout(function(){
+      if ($.fn.dcAccordion) {
+
+          $('#nav-accordion').dcAccordion({
+              eventType: 'click',
+              autoClose: true,
+              saveState: true,
+              disableLink: true,
+              speed: 'slow',
+              showCount: false,
+              autoExpand: true,
+              classExpand: 'dcjq-current-parent'
+          });
+      }
+    
+
+      if ($.fn.slimScroll) {
+          $('.event-list').slimscroll({
+              height: '305px',
+              wheelStep: 20
+          });
+          $('.conversation-list').slimscroll({
+              height: '360px',
+              wheelStep: 35
+          });
+          $('.to-do-list').slimscroll({
+              height: '300px',
+              wheelStep: 35
+          });
+      }
+
+      if ($.fn.niceScroll) {
+
+
+          $(".leftside-navigation").niceScroll({
+              cursorcolor: "#1FB5AD",
+              cursorborder: "0px solid #fff",
+              cursorborderradius: "0px",
+              cursorwidth: "3px"
+          });
+
+          $(".leftside-navigation").getNiceScroll().resize();
+          if ($('#sidebar').hasClass('hide-left-bar')) {
+              $(".leftside-navigation").getNiceScroll().hide();
+          }
+          $(".leftside-navigation").getNiceScroll().show();
+
+          $(".right-stat-bar").niceScroll({
+              cursorcolor: "#1FB5AD",
+              cursorborder: "0px solid #fff",
+              cursorborderradius: "0px",
+              cursorwidth: "3px"
+          });
+
+      }
+
+      if ($.fn.easyPieChart) {
+
+          $('.notification-pie-chart').easyPieChart({
+              onStep: function (from, to, percent) {
+                  $(this.el).find('.percent').text(Math.round(percent));
+              },
+              barColor: "#39b6ac",
+              lineWidth: 3,
+              size: 50,
+              trackColor: "#efefef",
+              scaleColor: "#cccccc"
+
+          });
+
+          $('.pc-epie-chart').easyPieChart({
+              onStep: function(from, to, percent) {
+                  $(this.el).find('.percent').text(Math.round(percent));
+              },
+              barColor: "#5bc6f0",
+              lineWidth: 3,
+              size:50,
+              trackColor: "#32323a",
+              scaleColor:"#cccccc"
+
+          });
+
+      }
+
+      if ($.fn.sparkline) {
+
+          $(".d-pending").sparkline([3, 1], {
+              type: 'pie',
+              width: '40',
+              height: '40',
+              sliceColors: ['#e1e1e1', '#8175c9']
+          });
+
+
+
+          var sparkLine = function () {
+              $(".sparkline").each(function () {
+                  var $data = $(this).data();
+                  ($data.type == 'pie') && $data.sliceColors && ($data.sliceColors = eval($data.sliceColors));
+                  ($data.type == 'bar') && $data.stackedBarColor && ($data.stackedBarColor = eval($data.stackedBarColor));
+
+                  $data.valueSpots = {
+                      '0:': $data.spotColor
+                  };
+                  $(this).sparkline($data.data || "html", $data);
+
+
+                  if ($(this).data("compositeData")) {
+                      $spdata.composite = true;
+                      $spdata.minSpotColor = false;
+                      $spdata.maxSpotColor = false;
+                      $spdata.valueSpots = {
+                          '0:': $spdata.spotColor
+                      };
+                      $(this).sparkline($(this).data("compositeData"), $spdata);
+                  };
+              });
+          };
+
+          var sparkResize;
+          $(window).resize(function (e) {
+              clearTimeout(sparkResize);
+              sparkResize = setTimeout(function () {
+                  sparkLine(true)
+              }, 500);
+          });
+          sparkLine(false);
+
+
+
+      }
+
+      if ($.fn.plot) {
+          var datatPie = [30, 50];
+
+          $.plot($(".target-sell"), datatPie, {
+              series: {
+                  pie: {
+                      innerRadius: 0.6,
+                      show: true,
+                      label: {
+                          show: false
+
+                      },
+                      stroke: {
+                          width: .01,
+                          color: '#fff'
+
+                      }
+                  }
+
+
+
+
+              },
+
+              legend: {
+                  show: true
+              },
+              grid: {
+                  hoverable: true,
+                  clickable: true
+              },
+
+              colors: ["#ff6d60", "#cbcdd9"]
+          });
+      }
+
+      $('.widget-head').click(function (e) {
+          var widgetElem = $(this).children('.widget-collapse').children('i');
+
+          $(this)
+              .next('.widget-container')
+              .slideToggle('slow');
+          if ($(widgetElem).hasClass('ico-minus')) {
+              $(widgetElem).removeClass('ico-minus');
+              $(widgetElem).addClass('ico-plus');
+          } else {
+              $(widgetElem).removeClass('ico-plus');
+              $(widgetElem).addClass('ico-minus');
+          }
+          e.preventDefault();
+      });
+      
+
+      $(".leftside-navigation .sub-menu > a").click(function () {
+          var o = ($(this).offset());
+          var diff = 80 - o.top;
+          if (diff > 0)
+              $(".leftside-navigation").scrollTo("-=" + Math.abs(diff), 500);
+          else
+              $(".leftside-navigation").scrollTo("+=" + Math.abs(diff), 500);
+      });
+
+
+      $('.sidebar-toggle-box .fa-bars').click(function (e) {
+
+          $(".leftside-navigation").niceScroll({
+              cursorcolor: "#1FB5AD",
+              cursorborder: "0px solid #fff",
+              cursorborderradius: "0px",
+              cursorwidth: "3px"
+          });
+
+          $('#sidebar').toggleClass('hide-left-bar');
+          if ($('#sidebar').hasClass('hide-left-bar')) {
+              $(".leftside-navigation").getNiceScroll().hide();
+          }
+          $(".leftside-navigation").getNiceScroll().show();
+          $('#main-content').toggleClass('merge-left');
+          e.stopPropagation();
+          if ($('#container').hasClass('open-right-panel')) {
+              $('#container').removeClass('open-right-panel')
+          }
+          if ($('.right-sidebar').hasClass('open-right-bar')) {
+              $('.right-sidebar').removeClass('open-right-bar')
+          }
+
+          if ($('.header').hasClass('merge-header')) {
+              $('.header').removeClass('merge-header')
+          }
+
+
+      });
+      $('.toggle-right-box .fa-bars').click(function (e) {
+          $('#container').toggleClass('open-right-panel');
+          $('.right-sidebar').toggleClass('open-right-bar');
+          $('.header').toggleClass('merge-header');
+
+          e.stopPropagation();
+      });
+      $('.header,#main-content,#sidebar').click(function () {
+          if ($('#container').hasClass('open-right-panel')) {
+              $('#container').removeClass('open-right-panel')
+          }
+          if ($('.right-sidebar').hasClass('open-right-bar')) {
+              $('.right-sidebar').removeClass('open-right-bar')
+          }
+
+          if ($('.header').hasClass('merge-header')) {
+              $('.header').removeClass('merge-header')
+          }
+
+
+      });
+      $('.panel .tools .fa').click(function () {
+          var el = $(this).parents(".panel").children(".panel-body");
+          if ($(this).hasClass("fa-chevron-down")) {
+              $(this).removeClass("fa-chevron-down").addClass("fa-chevron-up");
+              el.slideUp(200);
+          } else {
+              $(this).removeClass("fa-chevron-up").addClass("fa-chevron-down");
+              el.slideDown(200); }
+      });
+      $('.panel .tools .fa-times').click(function () {
+          $(this).parents(".panel").parent().remove();
+      });
+    //   $('.tooltips').tooltip();
+    //   $('.popovers').popover();
+
+    },1000);
+});
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.js"></script> 
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script> -->
+    <!-- <script src = "https://code.highcharts.com/highcharts.js"></script>  -->
+    <script>
+      $(function() {
+        setInterval( function() {
+            var seconds = new Date().getSeconds();
+            var sdegree = seconds * 6;
+            var srotate = "rotate(" + sdegree + "deg)";
+
+            $("#sec").css({"-moz-transform" : srotate, "-webkit-transform" : srotate});
+
+        }, 1000 );
+
+        setInterval( function() {
+            var hours = new Date().getHours();
+            var mins = new Date().getMinutes();
+            var hdegree = hours * 30 + (mins / 2);
+            var hrotate = "rotate(" + hdegree + "deg)";
+
+            $("#hour").css({"-moz-transform" : hrotate, "-webkit-transform" : hrotate});
+
+        }, 1000 );
+
+        setInterval( function() {
+            var mins = new Date().getMinutes();
+            var mdegree = mins * 6;
+            var mrotate = "rotate(" + mdegree + "deg)";
+
+            $("#min").css({"-moz-transform" : mrotate, "-webkit-transform" : mrotate});
+
+        }, 1000 );
+      });
+    </script>
+
+</body>
+
+</html>

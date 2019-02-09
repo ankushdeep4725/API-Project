@@ -1,0 +1,204 @@
+<block-ui>
+<section id="main-content" >
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+            <section class="panel"  style="border:1px dashed #1fb5ac;">
+            <h3 align="center" style="color:#1fb5ac; font-weight:bold; font-family:'MS Serif', 'New York', serif; padding:10px; font-size:24px;">Change Passwords</h3>
+            </section>
+            </div>
+        </div>
+        <div class="row">
+            
+            
+            <div class="col-md-6">
+<div class="profile-nav alt">
+        <section class="panel" style="border:1px dashed #1fb5ac;">
+                <form (ngSubmit)="updatePassword()" ngNativeValidate>
+<table width="100%" border="0">
+            
+            <tr>
+            <td colspan="3" align="center">
+            <h4 style="background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-size:22px; font-weight:bold; font-family:'MS Serif', 'New York', serif;">Change Account Password</h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td height="30">
+            
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="50%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold; margin-left:30px;">Old Password</h4>
+            </td>
+            <td width="50%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                    <input style="width:80%" type="password" 
+                    placeholder=" "  [(ngModel)]="changePassword.oldPassword" 
+                    name="password" value=""
+                    class="form-control" required></h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="50%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold; margin-left:30px;">New Password</h4>
+            </td>
+            <td width="50%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                    <input style="width:80%" type="password" placeholder=" "   
+                    [(ngModel)]="changePassword.newPassword" 
+                    name="newPassword" value=""
+                    class="form-control" required></h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="55%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold; margin-left:30px;">Confirm Password</h4>
+            </td>
+            <td width="45%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                    <input style="width:80%" type="password" 
+                    placeholder=" "  [(ngModel)]="changePassword.confirmNewPassword"  
+                    name="confirmNewPassword" value=""
+                    class="form-control" required></h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td height="30">
+               
+            </td>
+            </tr>
+
+            
+            <tr>
+            <td colspan="2" align="center" width="100%" >
+            <input type="submit" class="btn btn-primary" value="Save"/>
+            
+            <button type="button" (click)="onPasswordCancel()" style="margin-left:10px"
+                    class="btn btn-default">Cancel</button>
+            </td>
+            
+            </tr>
+
+            <tr>
+                        <td height="30">
+                        
+                        </td>
+                        </tr>
+            
+            <!-- <tr>
+            <td height="30" colspan="2">
+                        <span style="font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold; margin-left:30px;"
+                         *ngIf="responsemessage">{{responsemessage}}</span>
+            </td>
+            </tr> -->
+            
+          </table>
+        </form>
+            </section>
+            </div>
+            
+   
+            
+        </div>
+        
+        <div class="col-md-6">
+<div class="profile-nav alt">
+        <section class="panel" style="border:1px dashed #1fb5ac;">
+                        <form (ngSubmit)="updateTransactionPassword()" ngNativeValidate>
+<table width="100%" border="0">
+            
+            <tr>
+            <td colspan="3" align="center">
+            <h4 style="background:#1fb5ac;color:#FFF; padding:10px; margin:0px; font-size:22px; font-weight:bold; font-family:'MS Serif', 'New York', serif;">Change Transaction Pass</h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td height="30">
+            
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="50%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold; margin-left:30px;">Old Password</h4>
+            </td>
+            <td width="50%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                    <input style="width:80%" type="password" placeholder=" "   
+                    [(ngModel)]="changeTransactionPassword.oldPassword" 
+                    name="transactionoldpassword" value=""
+                    class="form-control" required></h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="50%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold; margin-left:30px;">New Password</h4>
+            </td>
+            <td width="50%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                    <input style="width:80%" type="password" placeholder=" "  
+                    [(ngModel)]="changeTransactionPassword.newPassword" 
+                    name="transactionnewpassword" value=""
+                    class="form-control" required></h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td width="55%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-size:17px; font-weight:bold; margin-left:30px;">Confirm Password</h4>
+            </td>
+            <td width="45%">
+            <h4 style="color:#1fb5ac; font-family:'MS Serif', 'New York', serif; font-weight:bold; font-size:17px;">
+                    <input style="width:80%" type="password" placeholder=" "  
+                    [(ngModel)]="changeTransactionPassword.confirmNewPassword" 
+                    name="transactionconfirmnewpassword" value=""
+                    class="form-control" required></h4>
+            </td>
+            </tr>
+            
+            <tr>
+            <td height="30">
+            </td>
+            </tr>
+
+            
+            <tr>
+            <td colspan="2" align="center" width="100%">
+            <button type="submit" class="btn btn-primary" >Save</button> 
+                    <button type="button" class="btn btn-default" style="margin-left:10px"
+                     (click)="onTransactionPasswordCancel()">Cancel</button>
+            </td>
+            </tr>
+            
+            <tr>
+            <td height="30">
+            
+            </td>
+            </tr>
+            
+          </table>
+          </form>
+            </section>
+            </div>
+            
+   
+            
+        </div>
+            
+           
+           
+                    
+         </div>  
+               
+
+    </section>
+</section>
+</block-ui>
